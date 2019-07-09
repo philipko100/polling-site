@@ -6,7 +6,7 @@
                 <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
         {!! Form::close() !!}
         @if(count($figures) > 0)
-                <b>Scores go from -10 to 10. I am testing Git.</b>
+                <b>Scores go from -10 to 10. </b>
                 @foreach($figures as $figure)
                         <div class = "well well-lg">
                                 <div class="row">
