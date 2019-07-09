@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Figure; //import model
+use App\Post;
 use DB;
 
 class PagesController extends Controller
@@ -176,6 +177,7 @@ class PagesController extends Controller
         // Check for correct user
         if(auth()->user()->id < 10){
             //delete posts of figures
+            $posts = Post::where('figure_id',$id)->delete();
             $figure->delete();
             return redirect('/')->with('success', 'Figure Removed');
         }
