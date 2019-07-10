@@ -181,7 +181,7 @@ class PostsController extends Controller
         $comments = DB::table('comments')
             ->where('post_id', $id)
             ->orderBy('created_at', 'desc')
-            ->paginate(20);
+            ->paginate(40);
 
 
         return view('posts.show')
