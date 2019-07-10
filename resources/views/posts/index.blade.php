@@ -26,6 +26,6 @@
         @endforeach
         {{$posts->links()}} <!-- this is to create the buttons for the paginated number buttons -->
     @else
-        <p>No posts found</p>
+        <p>No posts found.</p>
     @endif
 @endsection

@@ -13,7 +13,7 @@ class PagesController extends Controller
 {
     
     public function index(){
-        $figures = Figure::orderBy('overall_rating', 'desc')->paginate(15); //Post method from model
+        $figures = Figure::orderBy('overall_rating', 'desc')->paginate(35); 
         return view('pages.index')->with('figures',$figures);
     }
 

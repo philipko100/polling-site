@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-        {!! Form::open(['action' => 'SearchesController@search', 'method' => 'GET', 'class'=>"form-inline md-form mr-auto mb-4"]) !!}
-                {{Form::text('search', '', ['class'=>'form-control', 'placeholder'=>'Search For Reviews'])}}
+        {!! Form::open(['action' => 'SearchesController@figureSearch', 'method' => 'GET', 'class'=>"form-inline md-form mr-auto mb-4"]) !!}
+                {{Form::text('search', '', ['class'=>'form-control', 'placeholder'=>'Search For Figures'])}}
                 <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
         {!! Form::close() !!}
         @if(count($figures) > 0)
@@ -24,7 +24,7 @@
                 @endforeach
                 {{$figures->links()}}
         @else
-                <p>No figures up yet</p>
+                <p>No figures found.</p>
         @endif
         <br>
         <div class="jumbotron text-center">
