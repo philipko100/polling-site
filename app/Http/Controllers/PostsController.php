@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\Figure;
+use App\Comment;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -360,6 +361,7 @@ class PostsController extends Controller
             $rating = $post->rating;
             $trustworthiness = $post->trustworthiness;
             $figure = Figure::find($post->figure_id);
+            //revert the effects on the ratings
             $figure_overallRating = $figure->overall_rating;
             $figure_numOfReviews = $figure->numOfReviews;
             $figure_public_trust_rating = $figure->public_trust_rating;
@@ -378,6 +380,8 @@ class PostsController extends Controller
             $figure->overall_rating = $figure_overallRating;
             $figure->numOfReviews = $figure_numOfReviews;
             $figure->public_trust_rating = $figure_public_trust_rating;
+            //delete comments of the post
+            Comment::where('post_id',$post->id)->delete();
             $figure->save();
             $post->delete();
             return redirect('/posts')->with('success', 'Post Removed');
