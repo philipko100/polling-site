@@ -118,7 +118,7 @@ class PostsController extends Controller
             ->where('id', $post->figure_id)
             ->first();
         $last_name = $last_nameOb->last_name;
-        $name = $first_name.$last_name;
+        $name = $first_name." ".$last_name;
         $post->figure_name = $name;
 
         // Store sounds_like to make it searchable by similar spelling with $name

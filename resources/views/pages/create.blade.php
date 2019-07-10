@@ -16,7 +16,7 @@
                 {{Form::label('occupation', 'What is the figure\'s occupation?')}}
                 {{Form::text('occupation', '', ['class'=>'form-control', 'placeholder'=>'e.g. Political Commentator or News Agency or Journalist or Politician or etc.'])}}
         </div>
-        What does this figure identify as in the political compass? (The options are organized from the right to left dimension)
+        What does this figure self-identify as in the political compass? (The options are organized from the right to left dimension)
         <select name = "self_position" class="custom-select">
                 <option value = "" disabled selected>Choose political position</option> 
                 <option value = "Radical Libertarian or Neoliberal">Radical Libertarian or Neoliberal</option>

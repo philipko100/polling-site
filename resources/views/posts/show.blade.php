@@ -79,18 +79,17 @@
      @if(!Auth::guest())
      <div class="container">
      <div class="row">
-            <div class="col-sm">
+
     {!!Form::open(['action'=>['CommentsController@store'], 'method'=>'POST', 'class'=>'pull-right'])!!}
         {{Form::text('body', '', ['class'=>'form-control', 'placeholder'=>'Comment on the review here'])}}
         <input type = 'hidden' name = 'post_id' value = '{{$post->id}}'>
         <input type = 'hidden' name = 'post_title' value = '{{$post->title}}'>
         <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
         <input type = 'hidden' name = 'username' value = '{{Auth::user()->username}}'>
-            </div>
-            <div class="col-sm">
+
         {{Form::submit('Comment', ['class'=>'btn btn-secondary btn-sm'])}}
     {!!Form::close() !!}
-            </div>
+
            
      </div>
     </div>
