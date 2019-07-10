@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Posts</h1>
+    <h1>All Ratings</h1>
 
     {!! Form::open(['action' => 'SearchesController@search', 'method' => 'GET', 'class'=>"form-inline md-form mr-auto mb-4"]) !!}
-        {{Form::text('search', '', ['class'=>'form-control', 'placeholder'=>'Search Anything'])}}
+        {{Form::text('search', '', ['class'=>'form-control', 'placeholder'=>'Search for Ratings'])}}
         <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
     {!! Form::close() !!}
     @if(count($posts) > 0)

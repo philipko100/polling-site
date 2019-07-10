@@ -22,7 +22,7 @@ class SearchesController extends Controller
 
 
         $posts = Post::where('sounds_like','LIKE',"%{$search}%")
-            ->orderBy('created_at', 'desc')
+            ->orderBy('numOfComments', 'desc')
             ->paginate(100);
 
         return view('posts.index')->with('posts',$posts);

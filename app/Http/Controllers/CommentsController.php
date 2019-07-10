@@ -50,6 +50,10 @@ class CommentsController extends Controller
         $comment->username = $request->input('username');
         $comment->body = $request->input('body');
 
+        $post = Post::find($request->input('post_id'));
+        $post->numOfComments += 1;
+        $post->save();
+
         $comment->save();
 
         return redirect("/posts/$comment->post_id")->with('success', 'Comment Success');
@@ -89,7 +93,7 @@ class CommentsController extends Controller
         $comments = DB::table('comments')
             ->where('post_id', $post_id)
             ->orderBy('created_at', 'desc')
-            ->paginate(20);
+            ->paginate(40);
 
 
         // Check for correct user
