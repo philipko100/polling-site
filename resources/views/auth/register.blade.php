@@ -76,6 +76,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                                <label for="political_position" class="col-md-4 col-form-label text-md-right">{{ __('What is your political orientation?') }}</label>
+    
+                                <div class="col-md-6">
+                                    <select id="political_position" class="custom-select form-control{{ $errors->has('political_position') ? ' is-invalid' : '' }}" name="political_position" value="{{ old('political_position') }}" required autofocus>
+                                            <option value = "" disabled selected>Choose political orientation</option> 
+                                            <option value = "Radical Libertarian or Neoliberal">Radical Libertarian or Neoliberal</option>
+                                            <option value = "Classical Liberal (different from modern definition of Liberal)">Classical Liberal (different from modern definition of "Liberal")</option>
+                                            <option value = "Conservative Fascist (also known as alt-right)">Conservative Fascist (also known as "alt-right")</option>
+                                            <option value = "Conservative">Conservative</option>
+                                            <option value = "Moderately Conservative">Moderately Conservative</option>
+                                            <option value = "Centrist">Centrist</option>
+                                            <option value = "Moderately Liberal">Moderately Liberal</option>
+                                            <option value = "Liberal">Liberal</option>
+                                            <option value = "Socialist">Socialist</option>
+                                            <option value = "Leftist Fascist (also known as Antifa)">Leftist Fascist (also known as "Antifa")</option>
+                                            <option value = "Marxist Communist">Marxist Communist</option>
+                                            <option value = "Don't know">------ Don't know -------</option>
+                                        </select>
+    
+                                    @if ($errors->has('political_position'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('political_position') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
