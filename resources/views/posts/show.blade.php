@@ -95,7 +95,7 @@
     </div>
     @else
         <br><br>
-        You need to create an account to comment on reviews. Don't worry, it only takes 2 minutes!
+        You need to create an account to comment on reviews. Don't worry, it only takes a minute and you can log in with your Google or Facebook account!
     @endif
     
 @endsection
