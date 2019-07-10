@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Figure; //import model
 use App\Post;
+use App\Comment;
 use DB;
 
 class PagesController extends Controller
@@ -176,8 +177,15 @@ class PagesController extends Controller
 
         // Check for correct user
         if(auth()->user()->id < 10){
+            //delete comments of figures
+            $posts = Post::where('figure_id',$id)->get();
+            foreach($posts as $post)
+            {
+                $postid = $post->id;
+                Comment::where('post_id',$postid)->delete();
+            }
             //delete posts of figures
-            $posts = Post::where('figure_id',$id)->delete();
+            Post::where('figure_id',$id)->delete();
             $figure->delete();
             return redirect('/')->with('success', 'Figure Removed');
         }

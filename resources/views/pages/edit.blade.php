@@ -16,7 +16,7 @@
                         {{Form::label('occupation', "What is the $figure->first_name $figure->last_name's occupation?")}}
                         {{Form::text('occupation', $figure->occupation, ['class'=>'form-control', 'placeholder'=>'e.g. Political Commentator or News Agency or Journalist or Politician or etc.'])}}
                 </div>
-            What does {{$figure->first_name}} {{$figure->last_name}} identify as in the political compass? (The options are organized from the right to left dimension)
+            What does {{$figure->first_name}} {{$figure->last_name}} self-identify as in the political compass? (The options are organized from the right to left dimension)
                 <select name = "self_position" class="custom-select">
                 <option value = "{{$figure->self_position}}" selected>{{$figure->self_position}}</option>
                 <option value = "Radical Libertarian or Neoliberal">Radical Libertarian or Neoliberal</option>
