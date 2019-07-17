@@ -37,8 +37,8 @@
                                         <table class = "table table-striped">
                                                 <tr>
                                                         <th>Figures</th>
-                                                        <th></th>
-                                                        <th></th>
+                                                        <th> Editing Figures does not cause the disruption that deleting does. </th>
+                                                        <th>We advise you against delete figures as it would delete all of their ratings, comments, and subcomments.</th>
                                                 </tr>
                                                 @foreach($figures as $figure)
                                                         <tr>
@@ -54,7 +54,7 @@
                                                 @endforeach
                                         </table>
                                 @else
-                                        <p>You have no reviews. :(</p>
+                                        <p>There are no figures. :(</p>
                                 @endif
                                 <a href="/figures/create">Add A New Figure</a>  
                         @endif

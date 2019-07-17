@@ -51,7 +51,7 @@
                     </div>
                     @if(!Auth::guest())
                         @if(Auth::user()->id == $comment->user_id)
-                        <div class="float-sm-right">
+                    <div class="float-sm-right">
                             <div class="row">
                                     {!!Form::open(['action'=>['CommentsController@edit', $comment->id], 'method'=>'GET', 'class'=>'pull-right'])!!}
                                         
@@ -63,11 +63,61 @@
                                 {{Form::hidden('_method', 'DELETE')}}
                                 {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
                             {!!Form::close() !!}
+
+                            @endif
+                            @endif
                             </div>
-                        </div>
+                    </div>
+                    @if($supercomment->id == $comment->id)
+                        @if(count($subcomments) <= 0 )
+                            <br>
+                            No subcomments found.
+                        @else
+                            @foreach($subcomments as $subcomment)
+                                    @if($subcomment->id != $user_subcomment->id)
+                                    <div class="col-md-8 col-sm-8">
+                                        --> {{$subcomment->body}}<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<small>Written on {{$subcomment->created_at}} by {{$subcomment->username}} </small>
+                                    </div>
+                                    
+                                        @if(!Auth::guest())
+                                            @if(Auth::user()->id == $subcomment->user_id)
+                                            <div class="float-sm-right">
+                                                <div class="row">
+                                                    {!!Form::open(['action'=>['SubcommentsController@edit', $subcomment->id], 'method'=>'GET', 'class'=>'pull-right'])!!}
+                                                        {{Form::submit('Edit Sub', ['class'=>'btn btn-secondary btn-sm'])}}
+                                                    {!!Form::close() !!}
+                                
+                                                    {!!Form::open(['action'=>['SubcommentsController@destroy', $subcomment->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
+                                                        {{Form::hidden('_method', 'DELETE')}}
+                                                        {{Form::submit('Delete Sub', ['class'=>'btn btn-danger'])}}
+                                                    {!!Form::close() !!}
+                                                </div>
+                                            </div>
+                                            @endif
+                                        @endif
+                                    @else
+                                     <!--- only users are allowed to comment -->
+                                        @if(!Auth::guest())
+                                            <div class="container">
+                                                <div class="row">
+                                                    {!!Form::open(['action'=>['SubcommentsController@update', $user_subcomment->id], 'method'=>'PUT', 'class'=>'pull-right'])!!}
+                                                    <div class="col"> --> {{Form::text('body', $user_subcomment->body, ['class'=>'form-control', 'placeholder'=>"Enter new subcomment", 'autofocus'])}}</div>
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{Form::submit('Edited Subcomment', ['class'=>'btn btn-secondary btn-sm'])}}
+                                                    {!!Form::close() !!}
+                                                </div>
+                                            </div>
+                                        @else
+                                            <br><br>
+                                            You need to create an account to comment on reviews. Don't worry, it only takes a minute and you can log in with your Google or Facebook account!
+                                        @endif
+                                    @endif
+                            @endforeach
                         @endif
+
+                    @else
+                        <a href="/comment/{{$comment->id}}/subcomments">View subcomments</a>
                     @endif
-                    <a href="/comment/{{$comment->id}}/subcomments">View subcomments</a>
                 </div>
             </div>
     </div>

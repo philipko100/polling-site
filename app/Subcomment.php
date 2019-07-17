@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Subcomment extends Model
 {
     // Table Name
-    protected $table = 'comments';
+    protected $table = 'subcomments';
     // Primary Key
     public $primaryKey = 'id';
     // timestamps in database
@@ -16,8 +16,7 @@ class Comment extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
-   
-    public function subcomments(){
-        return $this->hasMany('App\Subcomment');
+    public function comment(){
+        return $this->belongsTo('App\Comment');
     }
 }
