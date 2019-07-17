@@ -37,7 +37,13 @@
                     <p>Best if you can answer questions such as, "What does this figure do?", "What does he/she/they believe politically and culturally?", "Who do this figure work with?", and "Do you have any more specific information or annecdote to back up your claims?"</p>
                     {{Form::textarea('bio', "$figure->bio", ['id'=>'summary-ckeditor','class'=>'form-control', 'placeholder'=>'Enter bio here'])}}
             </div>
-            
+            Is this person currently campaigning for an election?
+        <select name = "isInElection" class="custom-select">
+                <option value = "" disabled selected>Choose</option> 
+                <option value = 0>No</option>
+                <option value = 1>Yes</option>
+            </select>
+        <br><br>
         <!----//upload file UI--->
         Upload a picture of the figure:
         <div class = "form-group">

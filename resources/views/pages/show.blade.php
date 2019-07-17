@@ -11,6 +11,11 @@
         <h5><b>Trustworthiness: {{$figure->public_trust_rating}}</b> in a scale from -10 to 10<br>
         <b>Political Position:</b> {{$figure->self_position}}</h5>
         <b>Occupation:</b> {{$figure->occupation}}<br>
+        @if($figure->isInElection)
+            <b>Currently is in an election campaign.</b><br>
+        @else
+            <b>Currently not in an election campaign.</b><br>
+        @endif
         <b>Bio:</b> {{$figure->bio}}
     </div>
     <hr>
