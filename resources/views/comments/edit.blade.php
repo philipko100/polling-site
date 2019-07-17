@@ -43,6 +43,7 @@
     <div class="shadow-sm p-4 mb-4 bg-light">
             <div class = "well well-sm">
                 <div class="row">
+                    @if($comment->id != $user_comment->id)
                     <div class="col-md-8 col-sm-8">
 
                             {{$comment->body}}<br>
@@ -50,18 +51,34 @@
                     </div>
                     @if(!Auth::guest())
                         @if(Auth::user()->id == $comment->user_id)
+                        <div class="float-sm-right">
                             <div class="row">
-                                    
+                                    {!!Form::open(['action'=>['CommentsController@edit', $comment->id], 'method'=>'GET', 'class'=>'pull-right'])!!}
+                                        
+                                        {{Form::submit('Edit', ['class'=>'btn btn-secondary btn-sm'])}}
+                                    {!!Form::close() !!}
+                                
 
-                                    {!!Form::open(['action'=>['CommentsController@update', $comment->id], 'method'=>'PUT', 'class'=>'pull-right'])!!}
-                                        {{Form::text('body', '', ['class'=>'form-control', 'placeholder'=>'Enter new comment here'])}}
-                                            {{Form::submit('Comment', ['class'=>'btn btn-secondary btn-sm'])}}
-                                        {!!Form::close() !!}
-
-
-                            @endif
-                            @endif
+                             {!!Form::open(['action'=>['CommentsController@destroy', $comment->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
+                                {{Form::hidden('_method', 'DELETE')}}
+                                {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
+                            {!!Form::close() !!}
                             </div>
+                        </div>
+                        @endif
+                    @endif
+                    @else
+                        @if(!Auth::guest())
+                            @if(Auth::user()->id == $comment->user_id)
+                            <div class="row">
+                                    {!!Form::open(['action'=>['CommentsController@update', $comment->id], 'method'=>'PUT', 'class'=>'pull-right'])!!}
+                                        {{Form::text('body', $user_comment->body, ['class'=>'form-control', 'placeholder'=>'Enter new comment here', 'autofocus'])}}
+                                        {{Form::submit('Edited Comment', ['class'=>'btn btn-secondary btn-sm'])}}
+                                    {!!Form::close() !!}
+                            </div>
+                            @endif
+                        @endif
+                    @endif
                 </div>
             </div>
     </div>

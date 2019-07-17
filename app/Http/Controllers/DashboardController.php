@@ -29,6 +29,7 @@ class DashboardController extends Controller
 
         return view('dashboard')
         ->with('posts', $user->posts)
-        ->with('comments', $user->comments);
+        ->with('comments', $user->comments)
+        ->with('subcomments', $user->subcomments);
     }
 }

@@ -14,6 +14,8 @@
 ---
 */
 
+//Pages is for Figures
+
 Route::get('/', 'PagesController@index');
 
 Route::get('/figures/create', 'PagesController@create');
@@ -24,21 +26,39 @@ Route::post('/figures/store', 'PagesController@store');
 
 Route::get('/about', 'PagesController@about');
 
-Route::get('/services', 'PagesController@services');
-
 Route::delete('/figure/destroy/{id}', 'PagesController@destroy');
 
 Route::get('/figures/{id}/edit', 'PagesController@edit');
 
 Route::put('/figures/{id}/update', 'PagesController@update');
 
+//Searches
+
 Route::get('/posts/search', 'SearchesController@search');
 
 Route::get('/posts/search/figure', 'SearchesController@figureSearch');
 
+//Posts
+
 Route::resource('posts', 'PostsController');
 
+//Comments
+
 Route::resource('comments', 'CommentsController');
+
+//Subcomments
+
+Route::get('/comment/{id}/subcomments','SubcommentsController@index');
+
+Route::post('/subcomment/store', 'SubcommentsController@store');
+
+Route::get('/subcomments/{id}/edit', 'SubcommentsController@edit');
+
+Route::put('/subcomments/{id}/update', 'SubcommentsController@update');
+
+Route::delete('/subcomments/destroy/{id}', 'SubcommentsController@destroy');
+
+//others
 
 Auth::routes();
 

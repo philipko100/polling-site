@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Comment; //import model
 use App\Post; //import model
 use App\Figure; //import model
+use App\Subcomment;
 use DB;
 
 class CommentsController extends Controller
@@ -145,6 +146,8 @@ class CommentsController extends Controller
 
         // Check for correct user
         if(auth()->user()->id == $comment->user_id){
+            //delete subcomments of the commenmt
+            Subcomment::where('comment_id',$comment->id)->delete();
             $comment->delete();
             return redirect("/posts/$post_id")->with('success', 'Post Removed');
         }

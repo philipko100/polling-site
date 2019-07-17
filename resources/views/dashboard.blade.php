@@ -54,6 +54,22 @@
                     @else
                         <p>You did not comment anywhere. :(</p>
                     @endif
+                    @if(count($subcomments) > 0)
+                    <table class = "table table-striped">
+                        <tr>
+                            <th>Ratings You Have Subcommented On</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        @foreach($subcomments as $subcomment)
+                            <tr>
+                                <td><a href="/posts/{{$subcomment->post_id}}">{{$subcomment->post_title}}</a></td>
+                            </tr>
+                        @endforeach
+                    </table>
+                    @else
+                        <p>You did not subcomment anywhere. :(</p>
+                    @endif
                 </div>
             </div>
         </div>
