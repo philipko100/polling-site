@@ -57,8 +57,8 @@ class PagesController extends Controller
             'occupation' => 'required',
             'self_position' => 'required',
             'bio' => 'required',
-            'lastname' => 'required',
-            'cover_image' => 'required'
+            'cover_image' => 'required',
+            'isInElection' => 'required'
         ]);
 
         // Handle File Upload
@@ -84,6 +84,7 @@ class PagesController extends Controller
         $figure->occupation = $request->input('occupation');
         $figure->self_position = $request->input('self_position');
         $figure->bio = strip_tags($request->input('bio'));
+        $figure->isInElection = $request->input('isInElection');
 
         $figure->cover_image = $fileNameToStore;
 
@@ -125,7 +126,8 @@ class PagesController extends Controller
             'occupation'=> 'required',
             'self_position' => 'required',
             'bio' => 'required',
-            'cover_image' => 'required'
+            'cover_image' => 'required',
+            'isInElection' => 'required'
         ]);
 
         // Handle File Upload
@@ -151,6 +153,7 @@ class PagesController extends Controller
         $figure->occupation = $request->input('occupation');
         $figure->self_position = $request->input('self_position');
         $figure->bio = strip_tags($request->input('bio'));
+        $figure->isInElection = $request->input('isInElection');
 
         $figure->cover_image = $fileNameToStore;
 
