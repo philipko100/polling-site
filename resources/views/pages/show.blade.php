@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="/posts" class="btn btn-default" >Go Back</a>
+    <a href="/" class="btn btn-default" >Go Back</a>
     <h1>{{$figure->first_name}} {{$figure->last_name}}</h1>
     
     <h1><b>Overall Rating: {{$figure->overall_rating}}</b></h1><h5> in a scale from -10 to 10</h5>

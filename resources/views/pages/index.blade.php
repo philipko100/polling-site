@@ -7,21 +7,33 @@
         {!! Form::close() !!}
         @if(count($figures) > 0)
                 <b>Scores go from -10 to 10. </b>
-                @foreach($figures as $figure)
+
+
                         <div class = "well well-lg">
                                 <div class="row">
-                                        <div class="col-md-4 col-sm-4">
+
+
+                                  @foreach($figures as $figure)
+
+
+                                        <div class="col-md-2 col-sm-2">
                                                 <img style="width:50%" src="/storage/cover_images/{{$figure->cover_image}}">
                                         </div>
-                                        <div class="col-md-8 col-sm-8">
-                                                <h3><a href="/figures/{{$figure->id}}"> {{$figure->first_name}} {{$figure->last_name}}</a> <br>Overall Score: {{$figure->overall_rating}}</h3> 
-                                                Public trust score: {{$figure->public_trust_rating}} | 
+                                        <div class="col-md-2 col-sm-2">
+                                                <h3><a href="/figures/{{$figure->id}}"> {{$figure->first_name}} {{$figure->last_name}}</a> <br>Overall Score: {{$figure->overall_rating}}</h3>
+                                                Public trust score: {{$figure->public_trust_rating}} |
                                                 {{$figure->self_position}}
                                         </div>
-                                </div> 
+
+
+                                    @endforeach
+
+
+                                </div>
                                 <br>
                         </div>
-                @endforeach
+
+
                 {{$figures->links()}}
         @else
                 <p>No figures found.</p>
@@ -44,7 +56,7 @@
                                                         <tr>
                                                                 <td><a href="/figures/{{$figure->id}}" >{{$figure->first_name}} {{$figure->last_name}}</a></td>
                                                                 <td><a href="/figures/{{$figure->id}}/edit" class="btn btn-default">Edit</a></td>
-                                                                <td>            
+                                                                <td>
                                                                         {!!Form::open(['action'=>['PagesController@destroy', $figure->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
                                                                                 {{Form::hidden('_method', 'DELETE')}}
                                                                                 {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
@@ -56,7 +68,7 @@
                                 @else
                                         <p>There are no figures. :(</p>
                                 @endif
-                                <a href="/figures/create">Add A New Figure</a>  
+                                <a href="/figures/create">Add A New Figure</a>
                         @endif
                 @endguest
         </div>

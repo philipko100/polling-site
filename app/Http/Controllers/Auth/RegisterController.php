@@ -50,9 +50,14 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'gender' => ['required', 'string', 'max:255'],
+            'birth_date' => ['required', 'date'],
+            'current_country' => ['required', 'string', 'max:255'],
+            'current_province' => ['required', 'string', 'max:255'],
+            'current_city' => ['required', 'string', 'max:255'],
             'political_position' => ['required', 'string', 'max:255'],
         ]);
     }
@@ -70,7 +75,16 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'gender' => $data['gender'],
+            'birth_date' => $data['birth_date'],
+            'current_country' => $data['current_country'],
+            'current_province' => $data['current_province'],
+            'current_city' => $data['current_city'],
             'political_position' => $data['political_position'],
+            'education_level' => "No info",
+            'occupation' => "No info",
+            'income_level' => "No info",
+            'race_origin' => "No info",
         ]);
     }
 }
