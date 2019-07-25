@@ -14,7 +14,7 @@ class PagesController extends Controller
 {
     
     public function index(){
-        $figures = Figure::orderBy('overall_rating', 'desc')->paginate(35); 
+        $figures = Figure::orderBy('numOfReviews', 'desc')->paginate(35); 
         return view('pages.index')->with('figures',$figures);
     }
 

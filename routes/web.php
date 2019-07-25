@@ -59,6 +59,11 @@ Route::put('/subcomments/{id}/update', 'SubcommentsController@update');
 Route::delete('/subcomments/destroy/{id}', 'SubcommentsController@destroy');
 
 //others
+Route::get('/profile/{id}', 'UsersController@show');
+
+Route::get('/profile/{id}/edit', 'UsersController@edit');
+
+Route::put('/profile/update', 'UsersController@update');
 
 Auth::routes();
 
