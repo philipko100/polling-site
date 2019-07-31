@@ -28,6 +28,15 @@
          @endif
     @endif
 
+    @if(!Auth::guest())
+                            {!!Form::open(['action'=>['SavedPostsController@store'], 'method'=>'POST', 'class'=>'pull-right'])!!}
+                                <input type = 'hidden' name = 'post_id' value = '{{$post->id}}'>
+                                <input type = 'hidden' name = 'post_title' value = '{{$post->title}}'>
+                                <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
+                                {{Form::submit('Save Post', ['class'=>'btn btn-secondary btn-sm'])}}
+                            {!!Form::close() !!}
+                            @endif
+
                    </div>
             </div>
     </div>

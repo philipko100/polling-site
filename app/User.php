@@ -47,4 +47,7 @@ class User extends Authenticatable
     public function subcomments(){
         return $this->hasMany('App\Subcomment');
     }
+    public function savedposts(){
+        return $this->hasMany('App\SavedPost');
+    }
 }
