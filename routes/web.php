@@ -58,12 +58,22 @@ Route::put('/subcomments/{id}/update', 'SubcommentsController@update');
 
 Route::delete('/subcomments/destroy/{id}', 'SubcommentsController@destroy');
 
-//others
+//saving post
+
+Route::post('/post/save', 'SavedPostsController@store');
+
+Route::get('profile/{id}/saved', 'SavedPostsController@index');
+
+Route::delete('/post/saved/destroy/{id}', 'SavedPostsController@destroy');
+
+//user profile
 Route::get('/profile/{id}', 'UsersController@show');
 
 Route::get('/profile/{id}/edit', 'UsersController@edit');
 
 Route::put('/profile/update', 'UsersController@update');
+
+//others
 
 Auth::routes();
 

@@ -26,6 +26,14 @@
             <div class = "well well-lg">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
+                            @if(!Auth::guest())
+                            {!!Form::open(['action'=>['SavedPostsController@store'], 'method'=>'POST', 'class'=>'pull-right'])!!}
+                                <input type = 'hidden' name = 'post_id' value = '{{$post->id}}'>
+                                <input type = 'hidden' name = 'post_title' value = '{{$post->title}}'>
+                                <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
+                                {{Form::submit('Save Post', ['class'=>'btn btn-secondary btn-sm'])}}
+                            {!!Form::close() !!}
+                            @endif
                             <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
                     </div>
                     <div class="col-md-8 col-sm-8">
