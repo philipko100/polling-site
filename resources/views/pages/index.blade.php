@@ -1,39 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-        {!! Form::open(['action' => 'SearchesController@figureSearch', 'method' => 'GET', 'class'=>"form-inline md-form mr-auto mb-4"]) !!}
-                {{Form::text('search', '', ['class'=>'form-control', 'placeholder'=>'Search For Figures'])}}
-                <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
-        {!! Form::close() !!}
         @if(count($figures) > 0)
                 <b>Scores go from -10 to 10. </b>
-
-
                         <div class = "well well-lg">
                                 <div class="row">
-
-
                                   @foreach($figures as $figure)
-
-
-                                        <div class="col-md-2 col-sm-2">
-                                                <img style="width:50%" src="/storage/cover_images/{{$figure->cover_image}}">
-                                        </div>
-                                        <div class="col-md-2 col-sm-2">
-                                                <h3><a href="/figures/{{$figure->id}}"> {{$figure->first_name}} {{$figure->last_name}}</a> <br>Overall Score: {{$figure->overall_rating}}</h3>
-                                                Public trust score: {{$figure->public_trust_rating}} |
-                                                {{$figure->self_position}}
-                                        </div>
-
-
+                                    <div class="col-md-4 col-sm-12" style="margin-bottom:15px;">
+                                      <div class="row">
+                                      <div class="col-md-6 col-sm-6" style="padding:0px">
+                                        <a href="/figures/{{$figure->id}}">
+                                            <div class="image" style="background-image:url('{{$figure->cover_image}}');
+                                              background-position:center center; background-size:cover; width:100%;height:100%" >
+                                            </div>
+                                          </a>
+                                      </div>
+                                      <div class="col-md-6 col-sm-6">
+                                              <h3><a style="text-decoration:none"href="/figures/{{$figure->id}}"> {{$figure->first_name}} {{$figure->last_name}}</a> <br>Overall Score: {{$figure->overall_rating}}</h3>
+                                              Public trust score: {{$figure->public_trust_rating}} |
+                                              {{$figure->self_position}}
+                                      </div>
+                                    </div>
+                                    </div>
                                     @endforeach
-
-
                                 </div>
                                 <br>
                         </div>
-
-
                 {{$figures->links()}}
         @else
                 <p>No figures found.</p>
