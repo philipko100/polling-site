@@ -10,7 +10,7 @@
                                       <div class="row">
                                       <div class="col-md-6 col-sm-6" style="padding:0px">
                                         <a href="/figures/{{$figure->id}}">
-                                            <div class="image" style="background-image:url('{{$figure->cover_image}}');
+                                            <div class="image" style="background-image:url('/storage/cover_images/{{$figure->cover_image}}');
                                               background-position:center center; background-size:cover; width:100%;height:100%" >
                                             </div>
                                           </a>
