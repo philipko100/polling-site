@@ -30,6 +30,7 @@
                 <option value = "Socialist">Socialist</option>
                 <option value = "Leftist Fascist (also known as Antifa)">Leftist Fascist (also known as "Antifa")</option>
                 <option value = "Marxist Communist">Marxist Communist</option>
+                <option value = "Not Known">Not Known</option>
             </select>
             <br><br>
             <div class="form-group">
@@ -39,11 +40,29 @@
             </div>
             Is this person currently campaigning for an election?
         <select name = "isInElection" class="custom-select">
-                <option value = "" disabled selected>Choose</option> 
+                <option value = "{{$figure->isInElection}}" selected>{{$figure->isInElection}}: ---- 1 means yes, 0 means no</option>
                 <option value = 0>No</option>
                 <option value = 1>Yes</option>
             </select>
         <br><br>
+        <div class="form-group">
+                {{Form::label('election_scope', 'Figure\'s Election Scope')}} <br>
+                If the figure is not in election, leave this blank or put "N/A".
+                {{Form::text('election_scope', "$figure->election_scope", ['class'=>'form-control', 
+                'placeholder'=>'e.g. For Canada: Federal, Provincial, Municipal. e.g. For U.S.: Federal, State-level, etc.'])}}
+             </div>
+             <div class="form-group">
+                {{Form::label('election_region', 'Figure\'s Election Region')}} <br>
+                If the figure is not in election, leave this blank or put "N/A".
+                {{Form::text('election_region', "$figure->election_region", ['class'=>'form-control', 
+                'placeholder'=>'e.g. For Canada: Canada or Ontario, etc. e.g. For U.S.: United States of America or Texas, etc.'])}}
+             </div>
+             <div class="form-group">
+                {{Form::label('political_party', 'Figure\'s Affiliated Political Party')}} <br>
+                If the figure is not officially affiliated with a political party, leave this blank or put "N/A".
+                {{Form::text('political_party', "$figure->political_party", ['class'=>'form-control', 
+                'placeholder'=>'e.g. Conservative Party of Canada, or Republican Party, or Independent'])}}
+             </div>
         <!----//upload file UI--->
         Upload a picture of the figure:
         <div class = "form-group">
