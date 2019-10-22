@@ -86,6 +86,15 @@ class PagesController extends Controller
         $figure->bio = strip_tags($request->input('bio'));
         $figure->isInElection = $request->input('isInElection');
 
+        if($request->input('isInElection')) {
+            $figure->election_scope = $request->input('election_scope');
+            $figure->election_region = $request->input('election_region');
+        } else {
+            $figure->election_scope = "N/A";
+            $figure->election_region = "N/A";
+        }
+        $figure->political_party = $request->input('political_party');
+
         $figure->cover_image = $fileNameToStore;
 
         // Store sounds_like to make it searchable by similar spelling
@@ -154,6 +163,16 @@ class PagesController extends Controller
         $figure->self_position = $request->input('self_position');
         $figure->bio = strip_tags($request->input('bio'));
         $figure->isInElection = $request->input('isInElection');
+
+        
+        if($request->input('isInElection')) {
+            $figure->election_scope = $request->input('election_scope');
+            $figure->election_region = $request->input('election_region');
+        } else {
+            $figure->election_scope = "N/A";
+            $figure->election_region = "N/A";
+        }
+        $figure->political_party = $request->input('political_party');
 
         $figure->cover_image = $fileNameToStore;
 
