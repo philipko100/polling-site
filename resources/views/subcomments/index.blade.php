@@ -65,6 +65,12 @@
                             {!!Form::close() !!}
 
                             @endif
+                            {!!Form::open(['action'=>['SavedCommentsController@store'], 'method'=>'POST', 'class'=>'pull-right'])!!}
+                                <input type = 'hidden' name = 'post_id' value = '{{$comment->post_id}}'>
+                                <input type = 'hidden' name = 'comment_id' value = '{{$comment->id}}'>
+                                <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
+                                {{Form::submit('Save Comment', ['class'=>'btn btn-secondary btn-sm'])}}
+                            {!!Form::close() !!}
                             @endif
                             </div>
                     </div>

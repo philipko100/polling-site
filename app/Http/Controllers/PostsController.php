@@ -9,6 +9,8 @@ use App\Figure;
 use App\Comment;
 use App\Subcomment;
 use DB;
+use App\SavedPost;
+use App\SavedComment;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -385,6 +387,9 @@ class PostsController extends Controller
             //delete comments & subcomments of the post
             Comment::where('post_id',$post->id)->delete();
             Subcomment::where('post_id',$post->id)->delete();
+            //delete saved post and comments of this post
+            SavedPost::where('post_id', $post->id)->delete();
+            SavedComment::where('post_id', $post->id)->delete();
             $figure->save();
             $post->delete();
             return redirect('/posts')->with('success', 'Post Removed');

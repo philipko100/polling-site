@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\SavedPost;
+use App\SavedComment;
 use App\User;
+use App\Comment;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +32,14 @@ class SavedPostsController extends Controller
         $savedposts = $user->savedposts;
         $savedposts = $savedposts->sortByDesc('created_at');
 
-        return view('posts.saved')
+        $savedcomments = DB::table('saved_comments')
+                                ->join('comments', 'comments.id', '=', 'saved_comments.comment_id')
+                                ->select('saved_comments.id', 'saved_comments.comment_id', 'comments.body')
+                                ->where('saved_comments.user_id', $user_id)
+                                ->get();
+                        
+
+        return view('posts.saved', compact('savedcomments'))
         ->with('savedposts', $savedposts);
     }
 

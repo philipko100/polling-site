@@ -50,4 +50,7 @@ class User extends Authenticatable
     public function savedposts(){
         return $this->hasMany('App\SavedPost');
     }
+    public function savedcomments(){
+        return $this->hasMany('App\SavedComment');
+    }
 }

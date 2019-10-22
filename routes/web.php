@@ -66,6 +66,12 @@ Route::get('profile/{id}/saved', 'SavedPostsController@index');
 
 Route::delete('/post/saved/destroy/{id}', 'SavedPostsController@destroy');
 
+//saving comments
+
+Route::post('/post/save/comment', 'SavedCommentsController@store');
+
+Route::delete('/post/saved/destroy/comment/{id}', 'SavedCommentsController@destroy');
+
 //user profile
 Route::get('/profile/{id}', 'UsersController@show');
 

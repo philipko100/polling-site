@@ -63,7 +63,6 @@
                         <div class="float-sm-right">
                             <div class="row">
                                     {!!Form::open(['action'=>['CommentsController@edit', $comment->id], 'method'=>'GET', 'class'=>'pull-right'])!!}
-                                        
                                         {{Form::submit('Edit', ['class'=>'btn btn-secondary btn-sm'])}}
                                     {!!Form::close() !!}
                                 
@@ -77,6 +76,14 @@
                         @endif
                     @endif
                     <a href="/comment/{{$comment->id}}/subcomments">View subcomments</a>
+                    @if(!Auth::guest())
+                            {!!Form::open(['action'=>['SavedCommentsController@store'], 'method'=>'POST', 'class'=>'pull-right'])!!}
+                                <input type = 'hidden' name = 'post_id' value = '{{$comment->post_id}}'>
+                                <input type = 'hidden' name = 'comment_id' value = '{{$comment->id}}'>
+                                <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
+                                {{Form::submit('Save Comment', ['class'=>'btn btn-secondary btn-sm'])}}
+                            {!!Form::close() !!}
+                    @endif
                 </div>
             </div>
     </div>

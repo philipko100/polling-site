@@ -188,6 +188,9 @@ class PagesController extends Controller
                 $postid = $post->id;
                 Comment::where('post_id',$postid)->delete();
                 Subcomment::where('post_id',$postid)->delete();
+                //delete saved post and comments of this post
+                SavedPost::where('post_id', $post->id)->delete();
+                SavedComment::where('post_id', $post->id)->delete();
             }
             //delete posts of figures
             Post::where('figure_id',$id)->delete();

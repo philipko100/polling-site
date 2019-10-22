@@ -35,6 +35,29 @@
                     @else
                         <p>You did not save any post. :(</p>
                     @endif
+                
+                    @if(count($savedcomments) > 0)
+                    <table class = "table table-striped">
+                        <tr>
+                            <th>Comments You Have Saved</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        @foreach($savedcomments as $savedcomment)
+                            <tr>
+                                <td><a href="/comment/{{$savedcomment->comment_id}}/subcomments">
+                                    {{$savedcomment->body}}
+                                    </a></td>
+                                <td>{!!Form::open(['action'=>['SavedCommentsController@destroy', $savedcomment->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
+                                        {{Form::hidden('_method', 'DELETE')}}
+                                        {{Form::submit('Unsave', ['class'=>'btn btn-danger'])}}
+                                    {!!Form::close() !!}</td>
+                            </tr>
+                        @endforeach
+                    </table>
+                    @else
+                        <p>You did not save any comments. :(</p>
+                    @endif
                 </div>
             </div>
         </div>
