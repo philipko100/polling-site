@@ -10,8 +10,10 @@
     <div>
         <h5><b>Trustworthiness: {{$figure->public_trust_rating}}</b> in a scale from -10 to 10<br>
         <b>{{$figure->first_name}} {{$figure->last_name}} self identifies as Political Position:</b> {{$figure->self_position}}<br>
-        <b>Political Party Affiliation:</b> {{$figure->political_party}}</h5>
+        <b>Political Party Affiliation:</b> {{$figure->political_party}}<br>
+        <b>Official Title:</b> {{$figure->official_title}}<br></h5>
         <b>Occupation:</b> {{$figure->occupation}}<br>
+        
         @if($figure->isInElection)
             <b>Currently is in an election campaign.</b><br>
             <b>Election Scope:</b> {{$figure->election_scope}}<br>

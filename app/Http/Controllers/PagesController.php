@@ -58,7 +58,8 @@ class PagesController extends Controller
             'self_position' => 'required',
             'bio' => 'required',
             'cover_image' => 'required',
-            'isInElection' => 'required'
+            'isInElection' => 'required',
+            'official_title' => 'required'
         ]);
 
         // Handle File Upload
@@ -94,6 +95,7 @@ class PagesController extends Controller
             $figure->election_region = "N/A";
         }
         $figure->political_party = $request->input('political_party');
+        $figure->official_title = $request->input('official_title');
 
         $figure->cover_image = $fileNameToStore;
 
@@ -136,7 +138,8 @@ class PagesController extends Controller
             'self_position' => 'required',
             'bio' => 'required',
             'cover_image' => 'required',
-            'isInElection' => 'required'
+            'isInElection' => 'required',
+            'official_title' => 'required'
         ]);
 
         // Handle File Upload
@@ -173,6 +176,7 @@ class PagesController extends Controller
             $figure->election_region = "N/A";
         }
         $figure->political_party = $request->input('political_party');
+        $figure->official_title = $request->input('official_title');
 
         $figure->cover_image = $fileNameToStore;
 
