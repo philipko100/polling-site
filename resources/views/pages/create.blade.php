@@ -14,7 +14,11 @@
         </div>
         <div class="form-group">
                 {{Form::label('occupation', 'What is the figure\'s occupation?')}}
-                {{Form::text('occupation', '', ['class'=>'form-control', 'placeholder'=>'e.g. Political Commentator or News Agency or Journalist or Politician or etc.'])}}
+                {{Form::text('occupation', '', ['class'=>'form-control', 'placeholder'=>'e.g. Politician or Journalist or Political Commentator or News Agency or etc.'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('official_title', 'What is the figure\'s official title?')}}
+            {{Form::text('official_title', '', ['class'=>'form-control', 'placeholder'=>'e.g. Prime Minister of Canada or Opinion Editor of New York Times'])}}
         </div>
         What does this figure self-identify as in the political compass? (The options are organized from the right to left dimension)
         <select name = "self_position" class="custom-select">
