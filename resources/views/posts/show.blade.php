@@ -9,9 +9,9 @@
     <h1>{{$post->title}}</h1>
     
     <h3><b>Rating of review: {{$post->rating}}</b></h3>
-    Overall Rating of {{$figure->first_name}} {{$figure->last_name}}: {{$figure->overall_rating}}
-    <h3><b>Trustworthiness rating: {{$post->trustworthiness}}</b></h3>
-    Public trust rating of {{$figure->first_name}} {{$figure->last_name}}: {{$figure->public_trust_rating}}
+    Overall Rating of {{$figure->first_name}} {{$figure->last_name}}: {{$figure->overall_rating}}%
+    <h3><b>Trustworthiness rating: {{$post->trustworthiness}}%</b></h3>
+    Public trust rating of {{$figure->first_name}} {{$figure->last_name}}: {{$figure->public_trust_rating}}%
     <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
     
                    </div>

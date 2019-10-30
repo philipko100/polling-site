@@ -8,6 +8,8 @@ use App\Figure; //import model
 use App\Post;
 use App\Comment;
 use App\Subcomment;
+use App\SavedPost;
+use App\SavedComment;
 use DB;
 
 class PagesController extends Controller
@@ -94,7 +96,10 @@ class PagesController extends Controller
             $figure->election_scope = "N/A";
             $figure->election_region = "N/A";
         }
-        $figure->political_party = $request->input('political_party');
+        if($request->input('political_party'))
+            $figure->political_party = $request->input('political_party');
+        else
+            $figure->political_party = "N/A";
         $figure->official_title = $request->input('official_title');
 
         $figure->cover_image = $fileNameToStore;
@@ -107,9 +112,9 @@ class PagesController extends Controller
         $sounds_like.= metaphone($figure->self_position);
         $figure->sounds_like = $sounds_like;
         
-        $figure->overall_rating = 0;
+        $figure->overall_rating = 50;
         $figure->numOfReviews = 0;
-        $figure->public_trust_rating = 0;
+        $figure->public_trust_rating = 50;
         $figure->save();
 
         return redirect("/figures/$figure->id")->with('success', 'Figure Created');

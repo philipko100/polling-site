@@ -4,11 +4,11 @@
     <a href="/" class="btn btn-default" >Go Back</a>
     <h1>{{$figure->first_name}} {{$figure->last_name}}</h1>
     
-    <h1><b>Overall Rating: {{$figure->overall_rating}}</b></h1><h5> in a scale from -10 to 10</h5>
+    <h1><b>Overall Rating: {{$figure->overall_rating}}%</b></h1>
     <img style="width:30%" src="/storage/cover_images/{{$figure->cover_image}}">
     <br><br>
     <div>
-        <h5><b>Trustworthiness: {{$figure->public_trust_rating}}</b> in a scale from -10 to 10<br>
+        <h5><b>Trustworthiness: {{$figure->public_trust_rating}}%</b> 
         <b>{{$figure->first_name}} {{$figure->last_name}} self identifies as Political Position:</b> {{$figure->self_position}}<br>
         <b>Political Party Affiliation:</b> {{$figure->political_party}}<br>
         <b>Official Title:</b> {{$figure->official_title}}<br></h5>
@@ -42,8 +42,8 @@
                             <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
                     </div>
                     <div class="col-md-8 col-sm-8">
-                            <h5><a href="/posts/{{$post->id}}">{{$post->title}}</a> Overall Score: {{$post->rating}}
-                            Trustworthiness Score: {{$post->trustworthiness}}</h5> <!-- assign id by alphabetical order --->
+                            <h5><a href="/posts/{{$post->id}}">{{$post->title}}</a> Overall Score: {{$post->rating}}%
+                            Trustworthiness Score: {{$post->trustworthiness}}%</h5> <!-- assign id by alphabetical order --->
                             <p>They identify {{$figure->first_name}} {{$figure->last_name}} as {{$post->political_position}}.</p>
                             <small>Written on {{$post->created_at}} by {{$post->username}} </small>
                     </div>

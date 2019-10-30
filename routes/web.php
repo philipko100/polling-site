@@ -79,6 +79,7 @@ Route::get('/profile/{id}/edit', 'UsersController@edit');
 
 Route::put('/profile/update', 'UsersController@update');
 
+
 //others
 
 Auth::routes();
