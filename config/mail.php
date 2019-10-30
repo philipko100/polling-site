@@ -1,6 +1,20 @@
 <?php
 
+
 return [
+    
+    
+  "driver" => env('MAIL_DRIVER'),// "smtp",
+  "host" => env('MAIL_HOST'), // "smtp.mailtrap.io",
+  "port" => env('MAIL_PORT'), //2525,
+  "from" => array(
+      "address" => env('MAIL_FROM_ADDRESS'), //"from@example.com",
+      "name" => env('MAIL_FROM_NAME'), //"Example"
+  ),
+  "username" => env('MAIL_USERNAME'),
+  "password" => env('MAIL_PASSWORD'),
+  "sendmail" => "/usr/sbin/sendmail -bs"
+];
 
     /*
     |--------------------------------------------------------------------------
@@ -16,7 +30,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    //'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +43,8 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    //'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    //'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +57,9 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    //'port' => env('MAIL_PORT', 587),
+    //'port' => env('MAIL_PORT', 2525),
+    //'port' => env('MAIL_PORT', 465),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,10 +72,13 @@ return [
     |
     */
 
+    /*
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'philip.ko.100@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
+    */
+    //'from' => ['address'=>'philip.ko.100@gmail.com', 'name'=>'Laravel App'],
 
     /*
     |--------------------------------------------------------------------------
@@ -71,7 +91,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    //'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +104,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    //'username' => env('MAIL_USERNAME'),
 
-    'password' => env('MAIL_PASSWORD'),
+    //'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
@@ -99,7 +119,7 @@ return [
     |
     */
 
-    'sendmail' => '/usr/sbin/sendmail -bs',
+    //'sendmail' => '/usr/sbin/sendmail -bs',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,7 +130,7 @@ return [
     | theme and component paths here, allowing you to customize the design
     | of the emails. Or, you may simply stick with the Laravel defaults!
     |
-    */
+    
 
     'markdown' => [
         'theme' => 'default',
@@ -131,6 +151,8 @@ return [
     |
     */
 
-    'log_channel' => env('MAIL_LOG_CHANNEL'),
+    //'log_channel' => env('MAIL_LOG_CHANNEL'),
 
-];
+    
+
+//];

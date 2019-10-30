@@ -2,7 +2,7 @@
 
 @section('content')
         @if(count($figures) > 0)
-                <b>Scores go from -10 to 10. </b>
+                <b>Scores are a percentage out of 100%. </b>
                         <div class = "well well-lg">
                                 <div class="row">
                                   @foreach($figures as $figure)
@@ -16,8 +16,8 @@
                                           </a>
                                       </div>
                                       <div class="col-md-6 col-sm-6">
-                                              <h3><a style="text-decoration:none"href="/figures/{{$figure->id}}"> {{$figure->first_name}} {{$figure->last_name}}</a> <br>Overall Score: {{$figure->overall_rating}}</h3>
-                                              Public trust score: {{$figure->public_trust_rating}} |
+                                              <h3><a style="text-decoration:none"href="/figures/{{$figure->id}}"> {{$figure->first_name}} {{$figure->last_name}}</a> <br>Overall Score: {{$figure->overall_rating}}%</h3>
+                                              Public trust score: {{$figure->public_trust_rating}}% |
                                               {{$figure->self_position}}
                                       </div>
                                     </div>

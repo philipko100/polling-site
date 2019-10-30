@@ -11,34 +11,33 @@
     </div>
     How would you score {{$figure->first_name}} {{$figure->last_name}} overall?
     <select name = "rating" class="custom-select">
-            <option value = "{{$post->rating}}" selected>{{$post->rating}}
-            <option value = 5>5 stars - Best</option>
-            <option value = 4>4 stars</option>
-            <option value = 3>3 stars</option>
-            <option value = 2>2 stars - Pretty good</option>
-            <option value = 1>1 stars</option>
-            <option value = 0>0 stars - Neutral</option>
-            <option value = -1>-1 stars</option>
-            <option value = -2>-2 stars - Pretty bad</option>
-            <option value = -3>-3 stars</option>
-            <option value = -4>-4 stars</option>
-            <option value = -5>-5 stars - Hate it</option>
+        <option value = 100>100% rating - Best</option>
+        <option value = 90>90%</option>
+        <option value = 80>80%</option>
+        <option value = 70>70% - Pretty good</option>
+        <option value = 60>60%</option>
+        <option value = 50>50% - Neutral</option>
+        <option value = 40>40%</option>
+        <option value = 30>30% - Pretty bad</option>
+        <option value = 20>20%</option>
+        <option value = 10>10%</option>
+        <option value = 0>0% - Hate it</option>
         </select>
         <br><br>
         How would you score {{$figure->first_name}} {{$figure->last_name}}'s trustworthiness?
         <select name = "trustworthiness" class="custom-select">
                 <option value = "{{$post->trustworthiness}}" selected>{{$post->trustworthiness}}
-                <option value = 5>5 stars - Always tells the truth</option>
-                <option value = 4>4 stars</option>
-                <option value = 3>3 stars</option>
-                <option value = 2>2 stars - Small lies infrequently</option>
-                <option value = 1>1 stars</option>
-                <option value = 0>0 stars - Lies from time to time</option>
-                <option value = -1>-1 stars</option>
-                <option value = -2>-2 stars - Small lies frequently & big lies infrequently</option>
-                <option value = -3>-3 stars</option>
-                <option value = -4>-4 stars</option>
-                <option value = -5>-5 stars - Big lies all the time</option>
+                <option value = 100>100% - Always tells the truth</option>
+                <option value = 90>90%</option>
+                <option value = 80>80%</option>
+                <option value = 70>70% - Small lies infrequently</option>
+                <option value = 60>60%</option>
+                <option value = 50>50% - Lies from time to time</option>
+                <option value = 40>40%</option>
+                <option value = 30>30% - Small lies frequently & big lies infrequently</option>
+                <option value = 20>20%</option>
+                <option value = 10>10%</option>
+                <option value = 0>0% - Big lies all the time</option>
             </select>
             <br><br>
     Where do you think {{$figure->first_name}} {{$figure->last_name}} stand in the political compass? (The options are organized from the right to left dimension) *optional*

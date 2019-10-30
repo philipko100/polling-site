@@ -8,7 +8,6 @@
         <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
     {!! Form::close() !!}
     @if(count($posts) > 0)
-        Scores go from 1 to 5: 1 being really bad to 5 being freaking awesome.
         @foreach($posts as $post)
             <div class = "well well-lg">
                 <div class="row">
@@ -24,7 +23,7 @@
                             <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
                     </div>
                     <div class="col-md-8 col-sm-8">
-                            <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a> Rating: {{$post->rating}}</h3> <!-- assign id by alphabetical order --->
+                            <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a> Rating: {{$post->rating}}%</h3> <!-- assign id by alphabetical order --->
                             Review of: {{$post->figure_name}}<br>
                             <small>Written on {{$post->created_at}} by {{$post->username}} </small>
                     </div>
