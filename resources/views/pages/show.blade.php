@@ -66,7 +66,7 @@
 
     
     @if(!Auth::guest())
-        @if(Auth::user()->id < 10)
+        @if(Auth::user()->isAdmin)
             <a href="/figures/{{$figure->id}}/edit" class="btn btn-default">Edit Figure</a>
     
             {!!Form::open(['action'=>['PagesController@destroy', $figure->id], 'method'=>'POST', 'class'=>'pull-right'])!!}

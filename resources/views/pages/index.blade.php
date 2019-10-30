@@ -35,8 +35,8 @@
                 @guest
                         <p> <a class='btn btn-primary btn-lg' href="/login" role="button">Login</a> <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a></p>
                 @else
-                        <!--- if user ids are less than 10 (meaning they are website admins) they are able to add/edit figures --->
-                        @if( Auth::user()->id < 10 )
+                        <!--- if they are website admins, they are able to add/edit figures --->
+                        @if(Auth::user()->isAdmin)
                                 @if(count($figures) > 0)
                                         <table class = "table table-striped">
                                                 <tr>

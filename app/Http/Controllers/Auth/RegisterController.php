@@ -85,6 +85,7 @@ class RegisterController extends Controller
             'occupation' => "No info",
             'income_level' => "No info",
             'race_origin' => "No info",
+            'isAdmin' => false,
         ]);
     }
 }
