@@ -42,13 +42,11 @@ class PagesController extends Controller
     {
 
         // Check for correct user
-        if(auth()->user()->id < 10){
+        if(auth()->user()->isAdmin){
             return view('pages.create');
         }
 
-        if(auth()->user()->id !== $post->user_id){
-            return redirect('/')->with('error', 'Unauthorized page');
-        }
+        return redirect('/')->with('error', 'Unauthorized page');
     }
 
     public function store(Request $request)
@@ -100,6 +98,7 @@ class PagesController extends Controller
             $figure->political_party = $request->input('political_party');
         else
             $figure->political_party = "N/A";
+
         $figure->official_title = $request->input('official_title');
 
         $figure->cover_image = $fileNameToStore;
@@ -125,13 +124,11 @@ class PagesController extends Controller
         $figure = Figure::find($id);
 
         // Check for correct user
-        if(auth()->user()->id < 10){
+        if(auth()->user()->isAdmin){
             return view('pages.edit')->with('figure', $figure);
         }
 
-        if(auth()->user()->id !== $post->user_id){
-            return redirect('/posts')->with('error', 'Unauthorized page');
-        }
+        return redirect('/')->with('error', 'Unauthorized page');
     }
 
     public function update(Request $request, $id)
@@ -180,6 +177,7 @@ class PagesController extends Controller
             $figure->election_scope = "N/A";
             $figure->election_region = "N/A";
         }
+
         $figure->political_party = $request->input('political_party');
         $figure->official_title = $request->input('official_title');
 
@@ -200,15 +198,19 @@ class PagesController extends Controller
 
     public function destroy($id)
     { 
+        if(!auth()->user()->isAdmin){
+            return redirect('/')->with('error', 'Unauthorized page');
+        }
+        
         $figure = Figure::find($id);
 
-        if(auth()->user()->id < 10 && $figure->cover_image != 'noimage.jpg'){
+        if(auth()->user()->isAdmin && $figure->cover_image != 'noimage.jpg'){
             // Delete Image
             Storage::delete('public/cover_images/'.$figure->cover_image);
         }
 
         // Check for correct user
-        if(auth()->user()->id < 10){
+        if(auth()->user()->isAdmin){
             //delete comments & subcomments of figures
             $posts = Post::where('figure_id',$id)->get();
             foreach($posts as $post)
@@ -224,11 +226,7 @@ class PagesController extends Controller
             Post::where('figure_id',$id)->delete();
             $figure->delete();
             return redirect('/')->with('success', 'Figure Removed');
-        }
+        } 
 
-
-        if(auth()->user()->id >= 10){
-            return redirect('/')->with('error', 'Unauthorized page');
-        }
     }
 }
