@@ -98,3 +98,9 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 Route::get('/reportbugs/create', 'ReportBugsController@create')->name('reportbugs.create');
 
 Route::post('/reportbugs/store', 'ReportBugsController@store')->name('reportbugs.store');
+
+// Feedback & Recommendation feature
+
+Route::get('/feedbacks/create', 'FeedbacksController@create')->name('feedbacks.create');
+
+Route::post('/feedbacks/store', 'FeedbacksController@store')->name('feedbacks.store');
