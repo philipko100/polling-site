@@ -80,11 +80,21 @@ Route::get('/profile/{id}/edit', 'UsersController@edit');
 Route::put('/profile/update', 'UsersController@update');
 
 
-//others
+//Authentication (User login, registration, forgot password)
 
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
 
+// sign in through provider e.g. google
+
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
+// Report Bugs
+
+//Route::get('/reportbugs', 'ReportBugsController@index')->name('reportbugs.index');
+
+Route::get('/reportbugs/create', 'ReportBugsController@create')->name('reportbugs.create');
+
+Route::post('/reportbugs/store', 'ReportBugsController@store')->name('reportbugs.store');
