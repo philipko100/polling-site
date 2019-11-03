@@ -5,7 +5,9 @@
 
     {!! Form::open(['action' => 'SearchesController@search', 'method' => 'GET', 'class'=>"form-inline md-form mr-auto mb-4"]) !!}
         {{Form::text('search', '', ['class'=>'form-control', 'placeholder'=>'Search for Ratings'])}}
-        <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+        <button class="btn aqua-gradient btn-rounded btn-sm btn-light ml-1" type="submit">
+            <i class="fas fa-search"></i>
+        </button>
     {!! Form::close() !!}
     @if(count($posts) > 0)
         @foreach($posts as $post)
@@ -20,7 +22,9 @@
                                 {{Form::submit('Save Post', ['class'=>'btn btn-secondary btn-sm'])}}
                             {!!Form::close() !!}
                             @endif
-                            <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
+                            @if($post->cover_image != "noimage.jpg")
+                                <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
+                            @endif
                     </div>
                     <div class="col-md-8 col-sm-8">
                             <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a> Rating: {{$post->rating}}%</h3> <!-- assign id by alphabetical order --->

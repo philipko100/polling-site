@@ -57,7 +57,6 @@ class RegisterController extends Controller
             'birth_date' => ['required', 'date'],
             'current_country' => ['required', 'string', 'max:255'],
             'current_province' => ['required', 'string', 'max:255'],
-            'current_city' => ['required', 'string', 'max:255'],
             'political_position' => ['required', 'string', 'max:255'],
         ]);
     }
@@ -79,7 +78,7 @@ class RegisterController extends Controller
             'birth_date' => $data['birth_date'],
             'current_country' => $data['current_country'],
             'current_province' => $data['current_province'],
-            'current_city' => $data['current_city'],
+            'current_city' => "No info",
             'political_position' => $data['political_position'],
             'education_level' => "No info",
             'occupation' => "No info",

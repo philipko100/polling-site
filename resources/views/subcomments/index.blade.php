@@ -12,7 +12,9 @@
     Overall Rating of {{$figure->first_name}} {{$figure->last_name}}: {{$figure->overall_rating}}%
     <h3><b>Trustworthiness rating: {{$post->trustworthiness}}%</b></h3>
     Public trust rating of {{$figure->first_name}} {{$figure->last_name}}: {{$figure->public_trust_rating}}
-    <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
+    @if($post->cover_image != "noimage.jpg")
+        <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
+    @endif
     
                    </div>
     
