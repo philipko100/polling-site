@@ -49,10 +49,10 @@
                                 <a class="dropdown-item" href="{{ route('reportbugs.create') }}">
                                  {{ __('Report Bugs') }}
                                 </a>
-                                <a class="dropdown-item" href ="/profile/{{Auth::user()->id}}">
+                                <a class="dropdown-item" href ="{{ route('feedbacks.create') }}">
                                     {{ __('Feedback or Recommendation') }}
                                 </a>
-                                <a class="dropdown-item" href ="/profile/{{Auth::user()->id}}/saved">
+                                <a class="dropdown-item" href ="">
                                   {{ __('Complaint') }}
                               </a>
                         </div>
