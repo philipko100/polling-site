@@ -57,6 +57,10 @@
                                     {{ __('Login') }}
                                 </button>
                                 
+                                <a href="/login/google">
+                                    <img  src="/storage/cover_images/btn_google_signin_dark_normal_web.jpg">
+                                </a>
+                                
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="/password/reset">
                                         {{ __('Forgot Your Password?') }}

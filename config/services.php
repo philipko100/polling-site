@@ -44,4 +44,22 @@ return [
         ],
     ],
 
+    'facebook' => [ //can change to any provider
+        'client_id' => '456475671908657',
+        'client_secret' => 'f2113b8dc7c6f81aa40909d4f884d2fa',
+        'redirect' => 'http://politi.dev/login/facebook/callback',
+    ],
+
+    'twitter' => [ //can change to any provider
+        'client_id' => 'eg38PEmOHoFtk9IfFbiuRJ8Kg',
+        'client_secret' => 'gKZGoKOCecD16cKiWFxUzuW3yDIpjReha2dRBHrwIZwjtU2KBv',
+        'redirect' => 'http://politi.dev/login/twitter/callback',
+    ],
+
+    'google' => [ //can change to any provider
+        'client_id' => '384403100470-icskatg1mdd8okfd25tcgqhqohehsn6k.apps.googleusercontent.com',
+        'client_secret' => 'Ry1xqa6VUuGf3bJ6h8vcslab',
+        'redirect' => 'http://politi.dev/login/google/callback',
+    ],
+
 ];
