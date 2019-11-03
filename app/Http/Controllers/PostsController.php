@@ -46,6 +46,9 @@ class PostsController extends Controller
      */
     public function create(Request $request)
     {
+        if(Auth::Guest()) {
+            return redirect('/login')->with('error', 'You need to log in to post a rating');
+        }
         $id = $request->input('id');
         $figure = Figure::find($id);
         return view('posts.create')->with('figure', $figure);
