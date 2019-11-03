@@ -53,4 +53,7 @@ class User extends Authenticatable
     public function savedcomments(){
         return $this->hasMany('App\SavedComment');
     }
+    public function socialProviders(){
+        return $this->hasMany(SocialProvider::class);
+    }
 }

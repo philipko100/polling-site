@@ -86,4 +86,5 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
 
-
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
