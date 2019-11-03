@@ -52,7 +52,7 @@
                                 <a class="dropdown-item" href ="{{ route('feedbacks.create') }}">
                                     {{ __('Feedback or Recommendation') }}
                                 </a>
-                                <a class="dropdown-item" href ="">
+                                <a class="dropdown-item" href ="{{ route('complaints.create') }}">
                                   {{ __('Complaint') }}
                               </a>
                         </div>

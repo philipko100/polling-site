@@ -104,3 +104,9 @@ Route::post('/reportbugs/store', 'ReportBugsController@store')->name('reportbugs
 Route::get('/feedbacks/create', 'FeedbacksController@create')->name('feedbacks.create');
 
 Route::post('/feedbacks/store', 'FeedbacksController@store')->name('feedbacks.store');
+
+// Complaint feature
+
+Route::get('/complaints/create', 'ComplaintsController@create')->name('complaints.create');
+
+Route::post('/complaints/store', 'ComplaintsController@store')->name('complaints.store');
