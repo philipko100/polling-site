@@ -29,6 +29,7 @@ class FeedbacksController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'website_rating' => 'required',
         ]);
 
         // Store data
@@ -36,6 +37,7 @@ class FeedbacksController extends Controller
             DB::table('feedbacks')->insert(
                 ['title' => $request->input('title'),
                 'body' => $request->input('body'),
+                'website_rating' => $request->input('website_rating'),
                 'user_id' => auth()->user()->id,
                 'created_at' => date('Y-m-d H:i')]
             );
@@ -44,7 +46,9 @@ class FeedbacksController extends Controller
             DB::table('feedbacks')->insert(
             ['title' => $request->input('title'),
             'body' => $request->input('body'),
-            'user_id' => 0]
+            'website_rating' => $request->input('website_rating'),
+            'user_id' => 0,
+            'created_at' => date('Y-m-d H:i')]
             );
 
 

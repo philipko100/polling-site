@@ -6,32 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 
-class ReportBugsController extends Controller
+class ComplaintsController extends Controller
 {
-    /** Take this whole section till the next comment section to allow nonusers to post
-     * Create a new controller instance.
-     *
-     * @return void
-     *
-    public function __construct()
-    {
-        $this->middleware('auth',['except'=>['index','show']]);
-    }
-    */
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     *//*
-    public function index()
-    {
-        $reports = DB::table('report_bugs')->where('user_id', auth()->user()->id)->paginate(35);
-        return view('reportbugs.index')->with('reports',$reports);
-    }
-    */
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -39,7 +15,7 @@ class ReportBugsController extends Controller
      */
     public function create(Request $request)
     {
-        return view('reportbugs.create');
+        return view('complaints.create');
     }
 
     /**
@@ -57,7 +33,7 @@ class ReportBugsController extends Controller
 
         // Store data
         if(!Auth::Guest()){
-            DB::table('report_bugs')->insert(
+            DB::table('complaints')->insert(
                 ['title' => $request->input('title'),
                 'body' => $request->input('body'),
                 'user_id' => auth()->user()->id,
@@ -65,15 +41,13 @@ class ReportBugsController extends Controller
             );
         }
         else
-            DB::table('report_bugs')->insert(
+            DB::table('complaints')->insert(
             ['title' => $request->input('title'),
             'body' => $request->input('body'),
             'user_id' => 0,
             'created_at' => date('Y-m-d H:i')]
             );
 
-
-        return redirect("/reportbugs/create")->with('success', 'Sent Report');
+        return redirect("/complaints/create")->with('success', 'Sent Complaint');
     }
-
 }
