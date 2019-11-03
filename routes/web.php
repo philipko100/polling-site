@@ -110,3 +110,9 @@ Route::post('/feedbacks/store', 'FeedbacksController@store')->name('feedbacks.st
 Route::get('/complaints/create', 'ComplaintsController@create')->name('complaints.create');
 
 Route::post('/complaints/store', 'ComplaintsController@store')->name('complaints.store');
+
+// Political Definition page
+
+Route::get('/politicaldefinitions', function() {
+    return view('politicaldefinitions');
+})->name('politicaldefinitions');
