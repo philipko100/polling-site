@@ -39,6 +39,24 @@
                       <li class="nav-item">
                           <a class="nav-link" href="/about">About Us</a>
                        </li>
+
+                       <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Report <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('reportbugs.create') }}">
+                                 {{ __('Report Bugs') }}
+                                </a>
+                                <a class="dropdown-item" href ="/profile/{{Auth::user()->id}}">
+                                    {{ __('Feedback or Recommendation') }}
+                                </a>
+                                <a class="dropdown-item" href ="/profile/{{Auth::user()->id}}/saved">
+                                  {{ __('Complaint') }}
+                              </a>
+                        </div>
+                    </li>
                   <!-- Authentication Links -->
                   @guest
                       <li class="nav-item">
