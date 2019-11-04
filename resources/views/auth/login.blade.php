@@ -60,6 +60,12 @@
                                 <a href="/login/google">
                                     <img  src="/storage/cover_images/signInButtons/btn_google_signin_dark_normal_web.jpg">
                                 </a>
+                                <br><br>
+
+                                <a href="/login/twitter">
+                                    <img  src="/storage/cover_images/signInButtons/sign-in-with-twitter-link.jpg">
+                                </a>
+                                <br><br>
                                 
                                 <a href="/login/linkedin">
                                     <img  src="/storage/cover_images/signInButtons/Sign-in-Large---Default.jpg">
