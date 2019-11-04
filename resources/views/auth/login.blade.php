@@ -56,9 +56,13 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-                                
+
                                 <a href="/login/google">
-                                    <img  src="/storage/cover_images/btn_google_signin_dark_normal_web.jpg">
+                                    <img  src="/storage/cover_images/signInButtons/btn_google_signin_dark_normal_web.jpg">
+                                </a>
+                                
+                                <a href="/login/linkedin">
+                                    <img  src="/storage/cover_images/signInButtons/Sign-in-Large---Default.jpg">
                                 </a>
                                 
                                 @if (Route::has('password.request'))
