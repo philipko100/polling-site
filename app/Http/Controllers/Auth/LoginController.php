@@ -66,10 +66,20 @@ class LoginController extends Controller
         $socialProvider = SocialProvider::where('provider_id', $socialUser->getId())->first();
         if($socialProvider == null) {
             //create a new user and provider
-            $user = User::firstOrCreate(
-                ['email' => $socialUser->getEmail()],
-                ['name' => $socialUser->getName()]
-            );
+            if($socialUser->getEmail() == "") {
+                $user = User::firstOrCreate(
+                    ['email' => "fill in later"],
+                    ['name' => $socialUser->getName()]
+                );
+            } else {
+                $user = User::firstOrCreate(
+                    ['email' => $socialUser->getEmail()],
+                    ['name' => $socialUser->getName()]
+                );
+            }
+            if($provider == "twitter") {
+                $user->username = $socialUser->getNickname().rand();
+            }
             if($user->username == "") {
                 $user->username = "a $provider user ".$_SERVER['REQUEST_TIME'].rand();
                 $user->political_position = "Don't know";
@@ -77,18 +87,22 @@ class LoginController extends Controller
                 $user->current_city = "No info given";
                 $user->current_province = "No info given";
                 $user->current_country = "No info given";
-                $user->save();
             }
+            if($user->email == "fill in later") {
+                $user->email = "$user->username@$provider.com";
+            }
+
+            $user->save();
 
             $user->socialProviders()->create(
                 ['provider_id' => $socialUser->getId(), 'provider' => $provider]
             );
-        } else {//GOING TO ELSE
+        } else {
             $user = $socialProvider->user;
         }
 
         auth()->login($user);
-        return redirect('/dashboard');
+        return redirect("/dashboard");
 
         // $user->token;
     }
