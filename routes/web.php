@@ -82,7 +82,7 @@ Route::put('/profile/update', 'UsersController@update');
 
 //Authentication (User login, registration, forgot password)
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/dashboard', 'DashboardController@index');
 

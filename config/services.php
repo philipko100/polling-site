@@ -56,10 +56,10 @@ return [
         'redirect' => 'http://politi.dev/login/twitter/callback',
     ],
 
-    'google' => [ //can change to any provider
-        'client_id' => '384403100470-icskatg1mdd8okfd25tcgqhqohehsn6k.apps.googleusercontent.com',
-        'client_secret' => 'Ry1xqa6VUuGf3bJ6h8vcslab',
-        'redirect' => 'http://politi.dev/login/google/callback',
+    'linkedin' => [ //can change to any provider
+        'client_id' => '86j8svhehg1chk',
+        'client_secret' => 'vHlwIu5bh4X6htBQ',
+        'redirect' => 'http://politi.dev/login/linkedin/callback',
     ],
 
 ];

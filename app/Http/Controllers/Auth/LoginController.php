@@ -70,8 +70,15 @@ class LoginController extends Controller
                 ['email' => $socialUser->getEmail()],
                 ['name' => $socialUser->getName()]
             );
-            $user->username = "a $provider user ".$_SERVER['REQUEST_TIME'].rand();
-            $user->save();
+            if($user->username == "") {
+                $user->username = "a $provider user ".$_SERVER['REQUEST_TIME'].rand();
+                $user->political_position = "Don't know";
+                $user->gender = "No info given";
+                $user->current_city = "No info given";
+                $user->current_province = "No info given";
+                $user->current_country = "No info given";
+                $user->save();
+            }
 
             $user->socialProviders()->create(
                 ['provider_id' => $socialUser->getId(), 'provider' => $provider]
