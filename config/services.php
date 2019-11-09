@@ -68,4 +68,10 @@ return [
         'redirect' => 'http://politi.dev/login/linkedin/callback',
     ],
 
+    'amazon' => [ //can change to any provider
+        'client_id' => 'amzn1.application-oa2-client.2fdc93ddd04e458eaa2a6f21111e4f75',
+        'client_secret' => '2140fc8c555380251a8583da128db5b7fefc922bc7f25188bbb684f4c7bb17e4',
+        'redirect' => 'http://politi.dev/login/amazon/callback',
+    ],
+
 ];
