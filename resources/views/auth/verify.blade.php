@@ -16,6 +16,8 @@
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
                     {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
+                    <br>
+                    <br>{{ __('The Dashboard feature is very useful so verifying your email will be really good!') }}
                 </div>
             </div>
         </div>
