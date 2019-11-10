@@ -45,9 +45,15 @@ return [
     ],
 
     'facebook' => [ //can change to any provider
-        'client_id' => '456475671908657',
-        'client_secret' => 'f2113b8dc7c6f81aa40909d4f884d2fa',
-        'redirect' => 'http://politi.dev/login/facebook/callback',
+        'client_id' => '545900236196554',
+        'client_secret' => 'abf8ed43375f6a57ebd353a21a414fa5',
+        'redirect' => 'http://localhost/login/facebook/callback',
+    ],
+
+    'yahoo' => [ //can change to any provider
+        'client_id' => 'dj0yJmk9cGxCTTBHclhsVDI4JmQ9WVdrOU1UWXlSMU5xTXpBbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTgy',
+        'client_secret' => '79266f95d15d6f9a416c4be9e2ebe8dcb4f5a7ac',
+        'redirect' => 'http://politi.dev/login/yahoo/callback',
     ],
 
     'twitter' => [ //can change to any provider
