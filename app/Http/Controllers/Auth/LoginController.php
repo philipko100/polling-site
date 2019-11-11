@@ -49,9 +49,9 @@ class LoginController extends Controller
     {
         if($provider == 'facebook') {
             return Socialite::with('facebook')->fields([
-            'first_name', 'last_name', 'email', 'gender', 'birthday', 'location'
+            'first_name', 'last_name', 'email', 'gender', 'birthday', 'location', 'hometown'
             ])->scopes([
-            'email', 'user_birthday' , 'user_location'
+            'email', 'user_birthday' , 'user_location', 'user_hometown'
             ])->redirect();
         }
         return Socialite::driver($provider)->redirect();
@@ -69,7 +69,7 @@ class LoginController extends Controller
                 if($provider == "facebook") {
                     $socialUser = Socialite::with('facebook')->fields([
                         'name', 'email', 'gender', 'verified', 'first_name', 'last_name', 
-                        'birthday', 'location'
+                        'birthday', 'location', 'hometown'
                     ])->user();
                 }
             } else {
@@ -103,6 +103,10 @@ class LoginController extends Controller
                 $user->current_city = "No info given";
                 $user->current_province = "No info given";
                 $user->current_country = "No info given";
+                $user->hometown_city = "No info given";
+                $user->hometown_province = "No info given";
+                $user->hometown_country = "No info given";
+                $user->religion = "No info given";
             }
             if($user->email == "fill in later") {
                 $user->email = "$user->username@$provider.com";
@@ -118,6 +122,11 @@ class LoginController extends Controller
                 $locationArray = explode (", ", $user_cityAndProvince);  
                 $user->current_city = $locationArray[0];  
                 $user->current_province = $locationArray[1];
+
+                $user_cityAndProvince = $socialUser->user['hometown']['name'];
+                $locationArray = explode (", ", $user_cityAndProvince);  
+                $user->hometown_city = $locationArray[0];  
+                $user->hometown_province = $locationArray[1];
 
                 //$user->political_position = $socialUser->user['political']; //NOT WORK due to no return of info
             }

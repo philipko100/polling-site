@@ -59,6 +59,10 @@ class UsersController extends Controller
             $user->current_city = $request->input('current_city');
             $user->current_province = $request->input('current_province');
             $user->current_country = $request->input('current_country');
+            $user->hometown_city = $request->input('hometown_city');
+            $user->hometown_province = $request->input('hometown_province');
+            $user->hometown_country = $request->input('hometown_country');
+            $user->religion = $request->input('religion');
             $user->save();
 
         return redirect("/profile/$user_id")->with('success', 'Profile Edited');
