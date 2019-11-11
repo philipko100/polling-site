@@ -47,6 +47,13 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
+        if($provider == 'facebook') {
+            return Socialite::with('facebook')->fields([
+            'first_name', 'last_name', 'email', 'gender', 'birthday', 'location'
+            ])->scopes([
+            'email', 'user_birthday' , 'user_location'
+            ])->redirect();
+        }
         return Socialite::driver($provider)->redirect();
     }
 
@@ -58,7 +65,16 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         try {
-            $socialUser = Socialite::driver($provider)->user();
+            if($provider == 'facebook') {
+                if($provider == "facebook") {
+                    $socialUser = Socialite::with('facebook')->fields([
+                        'name', 'email', 'gender', 'verified', 'first_name', 'last_name', 
+                        'birthday', 'location'
+                    ])->user();
+                }
+            } else {
+                $socialUser = Socialite::driver($provider)->user();
+            }
         } catch (Exception $e) {
             return redirect('/');
         }
@@ -90,6 +106,20 @@ class LoginController extends Controller
             }
             if($user->email == "fill in later") {
                 $user->email = "$user->username@$provider.com";
+            }
+            if($provider == "facebook") {
+                $user->gender = $socialUser->user['gender'];
+
+                $originalDate=date_create($socialUser->user['birthday']);
+                $date=date_format($originalDate,"Y-m-d");
+                $user->birth_date = $date;
+
+                $user_cityAndProvince = $socialUser->user['location']['name'];
+                $locationArray = explode (", ", $user_cityAndProvince);  
+                $user->current_city = $locationArray[0];  
+                $user->current_province = $locationArray[1];
+
+                //$user->political_position = $socialUser->user['political']; //NOT WORK due to no return of info
             }
 
             $user->save();

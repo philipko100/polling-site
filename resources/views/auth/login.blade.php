@@ -57,6 +57,11 @@
                                     {{ __('Login') }}
                                 </button>
 
+                                <a href="/login/facebook">
+                                    <img  width=50% src="/storage/cover_images/signInButtons/18928641_251957295286418_4362086450741641216_n.png">
+                                </a>
+                                <br><br>
+
                                 <a href="/login/google">
                                     <img  src="/storage/cover_images/signInButtons/btn_google_signin_dark_normal_web.jpg">
                                 </a>
