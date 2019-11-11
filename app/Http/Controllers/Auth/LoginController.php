@@ -118,15 +118,19 @@ class LoginController extends Controller
                 $date=date_format($originalDate,"Y-m-d");
                 $user->birth_date = $date;
 
-                $user_cityAndProvince = $socialUser->user['location']['name'];
-                $locationArray = explode (", ", $user_cityAndProvince);  
-                $user->current_city = $locationArray[0];  
-                $user->current_province = $locationArray[1];
+                if(array_key_exists('location', $socialUser->user)) {
+                    $user_cityAndProvince = $socialUser->user['location']['name'];
+                    $locationArray = explode (", ", $user_cityAndProvince);  
+                    $user->current_city = $locationArray[0];  
+                    $user->current_province = $locationArray[1];
+                }
 
-                $user_cityAndProvince = $socialUser->user['hometown']['name'];
-                $locationArray = explode (", ", $user_cityAndProvince);  
-                $user->hometown_city = $locationArray[0];  
-                $user->hometown_province = $locationArray[1];
+                if(array_key_exists('hometown', $socialUser->user)) {
+                    $user_cityAndProvince = $socialUser->user['hometown']['name'];
+                    $locationArray = explode (", ", $user_cityAndProvince);  
+                    $user->hometown_city = $locationArray[0];  
+                    $user->hometown_province = $locationArray[1];
+                }
 
                 //$user->political_position = $socialUser->user['political']; //NOT WORK due to no return of info
             }
