@@ -16,7 +16,10 @@
                 <p>Best if you can answer questions such as, "Is there any information about you that is incorrect?", "What specifically about the website is bothering you?", "Is ther problem systemic?" and "How do you believe we can change this?"</p>
                 {{Form::textarea('body', '', ['id'=>'summary-ckeditor','class'=>'form-control', 'placeholder'=>'Body Text'])}}
         </div>
-        
+        Upload a picture/screenshot if you wish:
+        <div class = "form-group">
+            {{Form::file('cover_image')}}
+        </div>
 
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

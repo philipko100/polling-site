@@ -32,7 +32,10 @@
                 <p>Best if you can answer questions such as, "What specifically would you like the website to do?", "How would users use this change?", "Are there other websites that do this?" and "Why do you want this change?"</p>
                 {{Form::textarea('body', '', ['id'=>'summary-ckeditor','class'=>'form-control', 'placeholder'=>'Body Text'])}}
         </div>
-        
+        Upload a picture/screenshot if you wish:
+        <div class = "form-group">
+            {{Form::file('cover_image')}}
+        </div>
 
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
