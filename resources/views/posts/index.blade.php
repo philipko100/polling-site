@@ -29,7 +29,8 @@
                     <div class="col-md-8 col-sm-8">
                             <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a> Rating: {{$post->rating}}%</h3> <!-- assign id by alphabetical order --->
                             Review of: {{$post->figure_name}}<br>
-                            <small>Written on {{$post->created_at}} by {{$post->username}} </small>
+                            <small>Written on {{$post->created_at}} 
+                                by <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </small>
                     </div>
                 </div>
                 

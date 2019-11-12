@@ -58,7 +58,7 @@
                                                 @endforeach
                                         </table>
                                 @else
-                                        <p>There are no figures. :(</p>
+                                        <p>No figures found.</p>
                                 @endif
                                 <a href="/figures/create">Add A New Figure</a>
                         @endif

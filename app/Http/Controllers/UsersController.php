@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class UsersController extends Controller
@@ -12,7 +13,21 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        return view('auth.show')->with('userid', $id);
+        if(Auth::Guest()) {
+            return redirect('/login')->with('error', 'You need to log in to view other people\'s profiles');
+        }
+        $user = User::find($id);
+        return view('auth.show')
+            ->with('user', $user);
+    }
+    public function usernameShow($username)
+    {
+        if(Auth::Guest()) {
+            return redirect('/login')->with('error', 'You need to log in to view other people\'s profiles');
+        }
+        $user = User::where('username', $username)->first();
+        return view('auth.show')
+            ->with('user', $user);
     }
 
     public function edit ($id)
