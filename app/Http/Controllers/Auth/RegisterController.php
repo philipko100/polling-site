@@ -85,6 +85,10 @@ class RegisterController extends Controller
             'income_level' => "No info",
             'race_origin' => "No info",
             'isAdmin' => false,
+            'hometown_city' => "No info",
+            'hometown_province' => "No info",
+            'hometown_country' => "No info",
+            'religion' => "No info",
         ]);
     }
 }
