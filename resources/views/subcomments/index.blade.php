@@ -49,7 +49,8 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                             {{$comment->body}}<br>
-                            <small>Written on {{$comment->created_at}} by {{$comment->username}} </small>
+                            <small>Written on {{$comment->created_at}} 
+                                by <a href="/profile/username/{{$comment->username}}">{{$comment->username}}</a> </small>
                     </div>
                     @if(!Auth::guest())
                         @if(Auth::user()->id == $comment->user_id)
@@ -84,7 +85,8 @@
                             @foreach($subcomments as $subcomment)
                                     <div class="col-md-8 col-sm-8">
                                         --> {{$subcomment->body}}<br>
-                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<small>Written on {{$subcomment->created_at}} by {{$subcomment->username}} </small>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<small>Written on {{$subcomment->created_at}} 
+                                            by <a href="/profile/username/{{$subcomment->username}}">{{$subcomment->username}}</a> </small>
                                     </div>
                                     @if(!Auth::guest())
                                         @if(Auth::user()->id == $subcomment->user_id)

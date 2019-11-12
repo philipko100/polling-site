@@ -75,6 +75,8 @@ Route::delete('/post/saved/destroy/comment/{id}', 'SavedCommentsController@destr
 //user profile
 Route::get('/profile/{id}', 'UsersController@show');
 
+Route::get('/profile/username/{id}', 'UsersController@usernameShow');
+
 Route::get('/profile/{id}/edit', 'UsersController@edit');
 
 Route::put('/profile/update', 'UsersController@update');

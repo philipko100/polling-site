@@ -36,7 +36,7 @@
                         @endforeach
                     </table>
                     @else
-                        <p>You did not post anything. :(</p>
+                        <p>You did not post anything. :( You should!</p>
                     @endif
                     @if(count($comments) > 0)
                     <table class = "table table-striped">
@@ -52,7 +52,7 @@
                         @endforeach
                     </table>
                     @else
-                        <p>You did not comment anywhere. :(</p>
+                        <p>You did not comment anywhere. :( You should!</p>
                     @endif
                     @if(count($subcomments) > 0)
                     <table class = "table table-striped">
@@ -68,7 +68,7 @@
                         @endforeach
                     </table>
                     @else
-                        <p>You did not subcomment anywhere. :(</p>
+                        <p>You did not subcomment anywhere. :( You should!</p>
                     @endif
                 </div>
             </div>

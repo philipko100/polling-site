@@ -49,7 +49,8 @@
         {!!$post->body!!}
     </div>
     <hr>
-    <small>Written on {{$post->created_at}} by {{$post->username}} </small>
+    <small>Written on {{$post->created_at}} 
+        by <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </small> 
     <hr>
     Comments:
     @foreach($comments as $comment)
@@ -58,7 +59,8 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8">
                             {{$comment->body}}<br>
-                            <small>Written on {{$comment->created_at}} by {{$comment->username}} </small>
+                            <small>Written on {{$comment->created_at}} 
+                                by <a href="/profile/username/{{$comment->username}}">{{$comment->username}}</a> </small>
                     </div>
                     @if(!Auth::guest())
                         @if(Auth::user()->id == $comment->user_id)

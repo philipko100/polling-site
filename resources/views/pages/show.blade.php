@@ -45,7 +45,8 @@
                             <h5><a href="/posts/{{$post->id}}">{{$post->title}}</a> Overall Score: {{$post->rating}}%
                             Trustworthiness Score: {{$post->trustworthiness}}%</h5> <!-- assign id by alphabetical order --->
                             <p>They identify {{$figure->first_name}} {{$figure->last_name}} as {{$post->political_position}}.</p>
-                            <small>Written on {{$post->created_at}} by {{$post->username}} </small>
+                            <small>Written on {{$post->created_at}} by 
+                                        <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </small>
                     </div>
                 </div>
             </div>
