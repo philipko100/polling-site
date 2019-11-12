@@ -99,17 +99,23 @@ Route::get('/reportbugs/create', 'ReportBugsController@create')->name('reportbug
 
 Route::post('/reportbugs/store', 'ReportBugsController@store')->name('reportbugs.store');
 
+Route::get('/reportbugs/index', 'ReportBugsController@index')->name('reportbugs.index');
+
 // Feedback & Recommendation feature
 
 Route::get('/feedbacks/create', 'FeedbacksController@create')->name('feedbacks.create');
 
 Route::post('/feedbacks/store', 'FeedbacksController@store')->name('feedbacks.store');
 
+Route::get('/feedbacks/index', 'FeedbacksController@index')->name('feedbacks.index');
+
 // Complaint feature
 
 Route::get('/complaints/create', 'ComplaintsController@create')->name('complaints.create');
 
 Route::post('/complaints/store', 'ComplaintsController@store')->name('complaints.store');
+
+Route::get('/complaints/index', 'ComplaintsController@index')->name('complaints.index');
 
 // Political Definition page
 

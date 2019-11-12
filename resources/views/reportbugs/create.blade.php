@@ -16,7 +16,11 @@
                 <p>Best if you can answer questions such as, "What were the steps that lead you to find this bug?", "What does this bug do?", and "Did it affect any of your content you have posted in the past?"</p>
                 {{Form::textarea('body', '', ['id'=>'summary-ckeditor','class'=>'form-control', 'placeholder'=>'Body Text'])}}
         </div>
-        
+        <!----//upload file UI--->
+        Upload a picture/screenshot if you wish:
+        <div class = "form-group">
+            {{Form::file('cover_image')}}
+        </div>
 
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

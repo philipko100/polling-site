@@ -69,7 +69,7 @@
     <input type = 'hidden' name = 'figure_id' value = '{{$figure->id}}'>
     <input type = 'hidden' name = 'past_rating' value = '{{$post->rating}}'>
     <input type = 'hidden' name = 'past_trustworthiness' value = '{{$post->trustworthiness}}'>
-
+    Upload a relevant image if you wish *optional*
         <!----//upload file UI--->
         <div class = "form-group">
                 {{Form::file('cover_image')}}
