@@ -26,13 +26,20 @@
 <body>
     <div id="app">
 
-        @include('inc.navbar')
+        @if(!isset($variable))
+            @include('inc.navbar')
         <div class='container'>
             @include('inc.messages')
             <main class="py-4">
                 @yield('content')
             </main>
         </div>
+        @else
+        @include('inc.messages')
+            <main class="py-4">
+                @yield('content')
+            </main>
+        @endif
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>

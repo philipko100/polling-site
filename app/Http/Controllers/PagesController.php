@@ -17,7 +17,9 @@ class PagesController extends Controller
     
     public function index(){
         $figures = Figure::orderBy('numOfReviews', 'desc')->paginate(35); 
-        return view('pages.index')->with('figures',$figures);
+        return view('pages.indexcopy')
+        ->with('figures',$figures)
+        ->with('variable', TRUE);
     }
 
     public function about(){

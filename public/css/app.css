@@ -1,5 +1,174 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+/* =================================
+  Base Element Styles
+==================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "VarelaRound", sans-serif;
+  margin: 0;
+  background-color: #13202C;
+}
+
+.search {
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus {
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+
+.wrap {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.main-footer {
+  text-align: center;
+}
+
+.HeaderContainer {
+  width: 40%;
+  padding: 50px;
+  height: 100%;
+  height: inherit;
+  position: relative;
+}
+
+@media screen and (min-width: 800px) {
+  .HeaderContainer {
+    border-right: 1px solid white;
+  }
+}
+
+.HeaderContainer h1 {
+  font-size: 50px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.HeaderContainer li {
+  padding: 20px;
+}
+
+.HeaderContainer a {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.HeaderContainer a:hover {
+  outline: none;
+  position: relative;
+  background-color: #112D41;
+  padding: 20px;
+  border-radius: 40%;
+  color: #1DA1F2;
+}
+
+.main-box {
+  width: 120%;
+  margin: 0px;
+}
+
+.box {
+  width: 300px;
+  height: 400px;
+  border: 1px solid grey;
+  margin: 10px;
+}
+
+.box h3 {
+  color: white;
+  padding: 10px;
+}
+
+.box p {
+  color: white;
+  padding: 10px;
+}
+
+.box img {
+  max-width: 300px;
+  height: auto;
+  margin: 0px;
+  padding: 0px !important;
+}
+
+.main-footer {
+  background: #d9e4ea;
+  padding: 2em 0;
+  margin-top: 30px;
+}
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+  .HeaderContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Profile-Container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-content {
+    display: flex;
+    margin: 0px;
+  }
+
+  .main-box {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -72,7 +241,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f0f0f0;
+  background-color: #13202C;
 }
 
 [tabindex="-1"]:focus {
@@ -517,7 +686,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f0f0f0;
+  background-color: #13202C;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4100,15 +4269,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f0f0f0, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #13202C, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f0f0f0, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #13202C, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f0f0f0, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #13202C, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4308,8 +4477,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f0f0f0;
-  border-color: #dee2e6 #dee2e6 #f0f0f0;
+  background-color: #13202C;
+  border-color: #dee2e6 #dee2e6 #13202C;
 }
 
 .nav-tabs .dropdown-menu {
