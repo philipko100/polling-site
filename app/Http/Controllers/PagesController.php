@@ -17,9 +17,9 @@ class PagesController extends Controller
     
     public function index(){
         $figures = Figure::orderBy('numOfReviews', 'desc')->paginate(35); 
-        return view('pages.indexcopy')
+        return view('pages.index')
         ->with('figures',$figures)
-        ->with('variable', TRUE);
+        ->with('index', TRUE);
     }
 
     public function about(){
@@ -37,7 +37,8 @@ class PagesController extends Controller
             ->paginate(15);
         return view('pages.show')
             ->with('figure', $figure)
-            ->with('posts', $posts);
+            ->with('posts', $posts)
+            ->with('profile', TRUE);
     }
 
     public function create ()

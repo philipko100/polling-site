@@ -17,16 +17,21 @@
     <!-- font awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-    </head>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- if the page is pages profile or pages.show -->
+    @if(isset($profile))
+        <link href="{{ asset('css/pagesShow/base.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/pagesShow/flexbox.css') }}" rel="stylesheet">
+    @endif
 
 
 </head>
 <body>
     <div id="app">
-
-        @if(!isset($variable))
+        <!-- if the page is not index -->
+        @if(!isset($index))
             @include('inc.navbar')
         <div class='container'>
             @include('inc.messages')
@@ -34,13 +39,18 @@
                 @yield('content')
             </main>
         </div>
-        @else
+        @else <!-- if the page is index -->
         @include('inc.messages')
             <main class="py-4">
                 @yield('content')
             </main>
         @endif
     </div>
+
+    <footer class="main-footer" style="background-color: #112D41; color: white;">
+            <span>&copy;2019 {{ config('app.name', 'RateMyFigures') }}</span>
+     </footer>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
     <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>

@@ -1,0 +1,287 @@
+/* =================================
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Josefin-sans', sans-serif;
+	margin: 0;
+	/*background-color: #3C6496;*/
+	background-color: #1B374B;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+p {
+
+}
+h2,
+h3,
+a {
+	color: #424242;
+}
+
+a {
+	text-decoration: none;
+}
+
+.headline {
+	color: #00AEDB;
+	font-size: 50px;
+	font-family: Impact;
+}
+
+/* =================================
+  Base Layout Styles
+==================================== */
+
+/* ---- Navigation ---- */
+
+.name {
+	font-size: 1.35em;
+	margin: 0;
+	color: white;
+}
+.main-nav {
+	margin-top: 5px;
+}
+.name a,
+.main-nav a {
+	text-align: center;
+	display: block;
+	padding: 10px 15px;
+}
+.main-nav a {
+	font-size: .95em;
+	color: #00AEDB;
+	text-transform: uppercase;
+}
+.main-nav a:hover {
+	color: #093a58;
+}
+
+/* ---- Layout Containers ---- */
+
+.main-header {
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
+.banner,
+.main-footer {
+	text-align: center;
+	background-color: #112D41;
+}
+.banner {
+	color: #fff;
+	background: #1f2833;
+	padding: 4.0em 0;
+	height: 300px;
+	margin-bottom: 20px;
+}
+.col {
+	padding-right: 1em;
+	padding-left: 1em;
+}
+.main-footer {
+	background: #d9e4ea;
+	padding: 2em 0;
+	margin-top: 30px;
+}
+.introduction {
+	padding: 10em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.introduction h2{
+	font-size: 75px;
+}
+.FeatureYourText{
+	color: #1f2833;
+	font-size: 40px;
+	margin: auto;
+	margin-top: 40px;
+	width: 35%;
+	padding: 50px;
+	align-self: center;
+	text-decoration: underline #66fcf1;
+}
+
+.Featured {
+
+}
+.function-cols {
+	background: #282828;
+	padding: 50px;
+	margin-top: 300px;
+}
+
+.fcols{
+	padding: 40px;
+	margin: 10px;
+	font-size: 40px;
+	background: #45a29e;
+}
+.fcols h3 {
+	font-size: 30px;
+	color: white;
+}
+.fcols p {
+	font-size:15px;
+	color: white;
+}
+.featured-container {
+	margin-left: 10px;
+	margin-right: 10px;
+	align-content: center;
+}
+
+.featured-story {
+	background-color: #1f2833;
+	max-width: 400px;
+	padding: 20px;
+}
+
+.feat-img{
+	margin: 0px;
+}
+
+.featured-story h2 {
+	color: white;
+	font-size: 30px;
+	align-self: center;
+}
+.featured-story h3 {
+	color: white;
+	font-size: 20px;
+	align-content: center;
+	margin-left: 10px;
+	margin: 0px;
+}
+.featured-story img{
+	max-width: 500px;
+	max-height: 350px;
+}
+.featured-story a {
+	align-self: center;
+	margin-bottom: 20px;
+	color: #0091FF;
+}
+.inElection {
+	color: #e3afbc !important;
+	align-self: center;
+}
+
+/* ---- Page Elements ---- */
+
+.logo {
+	width: 190px;
+}
+.headline {
+	margin-bottom: 0;
+}
+
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+	.main-header,
+	.featured-container {
+		width: 50%;
+		margin: 0 auto;
+	}
+	.tagline {
+		font-size: 1.4em;
+	}
+}
+@media (min-width: 1025px) {
+	.main-header,
+	.featured-container{
+		width: 80%;
+		max-width: 1150px;
+	}
+
+}
+
+/* =================================
+  Profile show pages.show
+==================================== */
+.Profile-Container {
+	@media screen and (min-width: 800) {
+        border-right: 1px solid white;
+	}
+	border: 1px solid white;
+	height: inherit;
+	width: 40%;
+	margin: 10px;
+	padding: 20px;
+	/*background-color: #1B374B;*/
+}
+.profile {
+	color: white;
+}
+
+.Profile-Container h2,
+.Profile-Container h3,
+.Profile-Container a {
+	color: white;
+}
+
+.image-container {
+	width: 100%;
+	align-content: center;
+}
+.image-container img {
+	width: 100%;
+	height: 90%;
+	border: 5px #1DA1F2 solid;
+	align-self: center;
+}
+
+.main-header {
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
+@media (min-width: 769px) {
+	.main-header,
+	.featured-container {
+		width: 50%;
+		margin: 0 auto;
+	}
+}
+	@media (min-width: 1025px) {
+		.main-header,
+		.featured-container{
+			width: 80%;
+			max-width: 1150px;
+		}
+	}
+	.reviews-section {
+		width: 100%;
+	}
+	.ReviewsLabel {
+		width: 100%;
+		border: 2px white solid;
+	}
+	.ReviewsLabel h2 {
+		text-align: center;
+		color:white;
+	}
+	.individual-posts {
+		color: white;
+		border-bottom: 3px #3C6496 solid;
+		padding: 20px;
+		background-color: white;
+	}
+	.individual-posts img {
+		max-width: 200px;
+		max-height: inherit;
+	}
+
+

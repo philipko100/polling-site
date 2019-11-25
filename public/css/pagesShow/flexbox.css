@@ -1,0 +1,61 @@
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+
+	.main-header,
+	.main-nav,
+  .featured-container {
+    display: flex;
+	}
+
+	.main-header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+  .featured-container{
+  flex-direction: row;
+
+  }
+  .featured-story {
+    display: flex;
+    flex-direction: column;
+		margin: 30px;
+		align-items: center;
+  }
+	.function-cols{
+		display: flex;
+		flex-direction: column;
+	}
+	.coloumns{
+		display: flex;
+		flex-direction: row;
+	}
+	.featureIntro {
+		display: flex;
+		flex-direction: column;
+	}
+	.content-container {
+		display: flex;
+		flex-direction: row;
+	}
+
+
+}
+
+@media (min-width: 1025px) {
+
+	.main-header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+  .col {
+  flex-basis: 0;
+  }
+  .primary {
+  flex-grow: 1.4;
+  }
+
+}
