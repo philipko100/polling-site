@@ -36,7 +36,7 @@ Route::put('/figures/{id}/update', 'PagesController@update');
 
 Route::get('/posts/search', 'SearchesController@search');
 
-Route::get('/posts/search/figure', 'SearchesController@figureSearch');
+Route::get('/posts/search/figure', 'SearchesController@figureSearch')->name('search.figure');
 
 //Posts
 

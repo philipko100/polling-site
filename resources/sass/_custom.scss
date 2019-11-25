@@ -1,0 +1,160 @@
+/* =================================
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: 'VarelaRound', sans-serif;
+	margin: 0;
+    background-color: #13202C;
+    $body-bg: #13202C;
+}
+
+.search {
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 100%;
+	margin-bottom: 20px;
+}
+
+.main-footer {
+	text-align: center;
+}
+
+.HeaderContainer{
+	width: 40%;
+	padding: 50px;
+    height: 100%;
+    @media screen and (min-width: 800px) {
+        border-right: 1px solid white;
+    }
+	height: inherit;
+	position: relative;
+}
+.HeaderContainer h1 {
+	font-size: 50px;
+	color: white;
+}
+a {
+	text-decoration: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.HeaderContainer li {
+	padding: 20px;
+}
+
+.HeaderContainer a {
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.HeaderContainer a:hover {
+  outline: none;
+  position: relative;
+	background-color: #112D41;
+	padding: 20px;
+	border-radius: 40%;
+	color: #1DA1F2;
+}
+.main-box {
+	width: 120%;
+	margin: 0px;
+}
+
+.box {
+    width: 300px;
+    height: 400px;
+	border: 1px solid grey;
+	margin: 10px;
+}
+.box h3 {
+	color: white;
+	padding: 10px;
+}
+.box p{
+	color: white;
+	padding: 10px;
+}
+.box img {
+	max-width: 300px;
+	height: auto;
+	margin: 0px;
+	padding: 0px !important;
+}
+
+
+
+.main-footer {
+	background: #d9e4ea;
+	padding: 2em 0;
+	margin-top: 30px;
+}
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+	.HeaderContainer{
+		display: flex;
+		flex-direction: column;
+	}
+	.Profile-Container {
+		display: flex;
+		flex-direction: column;
+	}
+	.page-content{
+		display: flex;
+		margin: 0px;
+	}
+	.main-box {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+}
+
+@media (min-width: 1025px) {
+
+
+}
