@@ -9,7 +9,7 @@ body {
 	font-family: 'VarelaRound', sans-serif;
 	margin: 0;
     background-color: #13202C;
-    $body-bg: #13202C;
+    $body-bg: #112D41;
 }
 
 .search {
@@ -60,7 +60,8 @@ body {
     height: 100%;
     @media screen and (min-width: 800px) {
         border-right: 1px solid white;
-    }
+	}
+	background-color: #1B374B;
 	height: inherit;
 	position: relative;
 }
@@ -97,6 +98,7 @@ ul {
 	color: #1DA1F2;
 }
 .main-box {
+	background-color: #112D41;
 	width: 120%;
 	margin: 0px;
 }
@@ -146,6 +148,7 @@ ul {
 	.page-content{
 		display: flex;
 		margin: 0px;
+		color: #2B6CB2;
 	}
 	.main-box {
 		display: flex;

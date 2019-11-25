@@ -11,6 +11,8 @@
 @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
-  background-color: rgb(181, 136, 255);
+  //background-color: rgb(181, 136, 255);
+  background-color: #1B374B;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid black;
 }

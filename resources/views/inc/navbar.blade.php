@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
       <div class="container">
-          <a class="navbar-brand" href="{{ url('/') }}">
+          <a class="navbar-brand" style="color:white;" href="{{ url('/') }}">
               {{ config('app.name','RateYourCourse') }}
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -10,34 +10,30 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-            {!! Form::open(['action' => 'SearchesController@figureSearch', 'method' => 'GET', 'class'=>"form-inline md-form mr-auto ml-2"]) !!}
-                    {{Form::text('search', '', ['class'=>'form-control', 'placeholder'=>'Search For Figures'])}}
-                    <button class="btn aqua-gradient btn-rounded btn-sm btn-light ml-1" type="submit">
-                      <i class="fas fa-search"></i>
-</button>
-            {!! Form::close() !!}
+                {!! Form::open(['action' => 'SearchesController@figureSearch', 'method' => 'GET', 'class'=>"form-inline md-form mr-auto ml-2"]) !!}
+                <!-- <div class="wrap"> -->
+                   <div class="search">
+                      <input type="text" name='search' id='search' class="searchTerm" placeholder="Search figures..">
+                      <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                     </button>
+                   </div>
+                <!-- </div> -->
+                {!! Form::close() !!}
 
               <ul class="nav navbar-nav mr-auto">
-                      <li><a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a></li>
-
-
-                      <!---
+                     <li class="nav-item">
+                            <a class="nav-link" style="color:white;" href="/">Figures</a>
+                     </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/lsapp/public/services">Services</a>
-                      </li>
-                      --->
-                      <li class="nav-item">
-                          <a class="nav-link" href="/posts">Reviews</a>
-                      </li>
-                      <li class="nav-item">
-                              <a class="nav-link" href="/">Figures</a>
+                          <a class="nav-link" style="color:white;" href="/posts">Reviews</a>
                       </li>
                </ul>
 
               <!-- Right Side Of Navbar -->
               <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Info <span class="caret"></span>
                             </a>
     
@@ -52,7 +48,7 @@
                         </li>
 
                        <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Report <span class="caret"></span>
                         </a>
 
@@ -71,16 +67,16 @@
                   <!-- Authentication Links -->
                   @guest
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                          <a class="nav-link" style="color:white;" href="{{ route('login') }}">{{ __('Login') }}</a>
                       </li>
                       @if (Route::has('register'))
                           <li class="nav-item">
-                              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                              <a class="nav-link" style="color:white;" href="{{ route('register') }}">{{ __('Register') }}</a>
                           </li>
                       @endif
                   @else
                       <li class="nav-item dropdown">
-                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                               {{ Auth::user()->name }} <span class="caret"></span>
                           </a>
 

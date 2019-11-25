@@ -39,8 +39,8 @@ class SearchesController extends Controller
             ->orderBy('numOfReviews', 'desc')
             ->paginate(100);
 
-        return view('pages.indexcopy')
+        return view('pages.index')
         ->with('figures',$figures)
-        ->with('variable', TRUE);;
+        ->with('index', TRUE);;
     }
 }
