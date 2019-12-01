@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<post-review>
     <h1>Create Post</h1>
     <h3>You are rating <b>{{$figure->first_name}} {{$figure->last_name}}.</b></h3>
     <br>
@@ -24,7 +25,7 @@
             <option value = 10>10%</option>
             <option value = 0>0% - Hate it</option>
         </select>
-        <br><br>
+        <br><br><br>
         How would you score {{$figure->first_name}} {{$figure->last_name}}'s trustworthiness?
         <select name = "trustworthiness" class="custom-select">
                 <option value = 5 disabled selected>How trustworthy is {{$figure->first_name}} {{$figure->last_name}}? *optional*</option> 
@@ -40,7 +41,7 @@
                 <option value = 10>10%</option>
                 <option value = 0>0% - Big lies all the time</option>
             </select>
-        <br><br>
+        <br><br><br>
         Where do you think {{$figure->first_name}} {{$figure->last_name}} stand in the political compass? (The options are organized from the right to left dimension) *optional*
         <select name = "political_position" class="custom-select">
                 <option value = "" disabled selected>Choose political position *optional*</option> 
@@ -57,6 +58,8 @@
                 <option value = "Marxist Communist">Marxist Communist</option>
             </select>
 
+        <br>
+        <br>
         <br>
         <br>
 
@@ -76,4 +79,5 @@
 
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+</post-review>
 @endsection
