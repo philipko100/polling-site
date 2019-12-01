@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appNoTopNavbar')
 
 @section('content')
         @if(count($figures) > 0)

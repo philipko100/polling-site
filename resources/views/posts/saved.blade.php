@@ -27,7 +27,7 @@
                                 <td><a href="/posts/{{$savedpost->post_id}}">{{$savedpost->post_title}}</a></td>
                                 <td>{!!Form::open(['action'=>['SavedPostsController@destroy', $savedpost->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
                                         {{Form::hidden('_method', 'DELETE')}}
-                                        {{Form::submit('Unsave', ['class'=>'btn btn-danger'])}}
+                                        {{Form::submit('Unsave', ['class'=>'btn btn-danger', 'style'=>'float:right;'])}}
                                     {!!Form::close() !!}</td>
                             </tr>
                         @endforeach
