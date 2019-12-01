@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appNoTopNavbar')
 
 @section('content')
 <div class="container">
@@ -368,8 +368,13 @@
                                             </span>
                                         @endif
                                     </div>
-                                    <div class="col-md-6">
-                                            Province/State/Region: <input id="current_province" type="text" placeholder="e.g. California or British Columbia" class="form-control{{ $errors->has('current_province') ? ' is-invalid' : '' }}" name="current_province" value="{{ old('current_province') }}" required autofocus>
+                            </div>
+                                <div class="form-group row">
+                                            
+                                            <label for="current_province" class="col-md-4 col-form-label text-md-right">{{ __('Province/State/Region: ') }}</label>
+    
+                                            <div class="col-md-6"> 
+                                                <input id="current_province" type="text" placeholder="e.g. California or British Columbia" class="form-control{{ $errors->has('current_province') ? ' is-invalid' : '' }}" name="current_province" value="{{ old('current_province') }}" required autofocus>
             
                                             @if ($errors->has('current_province'))
                                                 <span class="invalid-feedback" role="alert">
@@ -383,7 +388,7 @@
 
                             <!---take political_position out-->
                         <div class="form-group row">
-                                <label for="political_position" class="col-md-4 col-form-label text-md-right">{{ __('What is your political orientation? *You can choose "Don\'t know"*') }}</label>
+                                <label for="political_position" class="col-md-4 col-form-label text-md-right">What is your political orientation? <br> * You can choose 'Don't know' *</label>
     
                                 <div class="col-md-6">
                                     <select id="political_position" class="custom-select form-control{{ $errors->has('political_position') ? ' is-invalid' : '' }}" name="political_position" value="{{ old('political_position') }}" required autofocus>

@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.appNoTopNavbar')
 
 @section('content')
-<div class="container">
+<div class="container" style="padding-top: 3%">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -56,25 +56,25 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
-                                <a href="/login/facebook">
-                                    <img  width=50% src="/storage/cover_images/signInButtons/18928641_251957295286418_4362086450741641216_n.png">
-                                </a>
+                                <br><br>
+                                      <a href="/login/facebook" class="fb connect">Continue with Facebook</a>
                                 <br><br>
 
                                 <a href="/login/google">
-                                    <img  src="/storage/cover_images/signInButtons/btn_google_signin_dark_normal_web.jpg">
-                                </a>
+                                <div class="google-btn">
+                                        <div class="google-icon-wrapper" >
+                                          <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                                        </div>
+                                        <p class="btn-text"><b>Sign in with Google</b></p>
+                                      </div>
+                                    </a>
+                                      <br>
+
+                                <a href="/login/linkedin" title="LinkedIn" class="btn btn-linkedin btn-lg"><i class="fa fa-linkedin-square" style="padding:0px; font-size:24px; float:left;"></i><p style="float: right;">Sign in with LinkedIn</p></a>
                                 <br><br>
 
-                                <a href="/login/twitter">
-                                    <img  src="/storage/cover_images/signInButtons/sign-in-with-twitter-link.jpg">
-                                </a>
+                                <a href="/login/twitter" title="Twitter" class="btn btn-twitter btn-lg"><i class="fa fa-twitter fa-fw" style="float:left;"></i>Sign in with Twitter</a>
                                 <br><br>
-                                
-                                <a href="/login/linkedin">
-                                    <img  src="/storage/cover_images/signInButtons/Sign-in-Large---Default.jpg">
-                                </a>
                                 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="/password/reset">

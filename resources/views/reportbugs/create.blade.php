@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="report">
 <div class="row">
     <h1>Report Bug</h1>
     <br>
@@ -24,4 +25,5 @@
 
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+</div>
 @endsection

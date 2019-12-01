@@ -10,11 +10,16 @@
                 <img src="/storage/cover_images/{{$figure->cover_image}}">
             </div>
             <h2>{{$figure->first_name}} {{$figure->last_name}}</h2>
+            <hr style="background-color: #51B2C9;">
             <h3>{{$figure->occupation}}</h3>
             <h3>{{$figure->official_title}}</h3>
-            <h3> {{$figure->first_name}} {{$figure->last_name}} politically self identifies himself as a: {{$figure->self_position}} </h3>
-			<h3> Overall Rating: {{$figure->overall_rating}}% </h2>
-			<h3> Trustworthiness score: {{$figure->public_trust_rating}}% </h2>
+            <hr style="background-color: #51B2C9;">
+            <h3> Overall Rating: {{$figure->overall_rating}}% </h3>
+                <hr style="background-color: #51B2C9;">
+            <h3> Trustworthiness score: {{$figure->public_trust_rating}}% </h3>
+                <hr style="background-color: #51B2C9;">
+                <h4> {{$figure->first_name}} {{$figure->last_name}} politically self identifies himself as a: {{$figure->self_position}} </h4>
+            <hr style="background-color: #51B2C9;">
             @if($figure->isInElection)
                 <h4>Currently is in an election campaign.</h4>
                 <h4>Election Scope: {{$figure->election_scope}}</h4>
@@ -30,11 +35,11 @@
         <div class="ReviewsLabel">
             <h2> Reviews </h2>
         </div>
-        <div class="text-right"> 
+        <div class="text-center"> 
         {!! Form::open(['action' => 'PostsController@create', 'method' => 'GET', 'enctype' => 'multipart/form-data']) !!}
                 <input type = 'hidden' name = 'id' value = '{{$figure->id}}'>
                 <input type = 'hidden' name = 'name' value = '{{$figure->first_name}} {{$figure->last_name}}'>
-                {{Form::submit('Rate this figure!', ['class'=>'btn btn-primary'])}}
+                {{Form::submit('Rate this figure!', ['class'=>'btn btn-primary', 'style'=>'width:100%; margin-top:5px; margin-bottom:5px'])}}
          {!! Form::close() !!}
         </div>
         <div class="post-section">
@@ -46,20 +51,23 @@
                             <img src="/storage/cover_images/{{$post->cover_image}}">
                         @endif
                     </a> 
-                    <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a>  <span style="font-size: 10px;"> Written by <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </span> </h3>
-                    <a href="/posts/{{$post->id}}">
-                        <h4>Overall Score: {{$post->rating}}%</h4>
-                        <h4> Trustworthiness score: {{$post->trustworthiness}}% </h4>
-                        <p> They identify {{$figure->first_name}} {{$figure->last_name}} as {{$post->political_position}} | Written on {{$post->created_at}}</p>
-                    </a>
-			        @if(!Auth::guest())
-                            {!!Form::open(['action'=>['SavedPostsController@store'], 'method'=>'POST', 'class'=>'pull-right'])!!}
+                    <h3><a href="/posts/{{$post->id}}" style="color:#424242;">{{$post->title}}</a>  <span style="font-size: 10px;"> Written by <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </span> </h3>
+                    <a href="/posts/{{$post->id}}" style="color:#424242;">
+                        <h4>Overall Score: {{$post->rating}}%
+                                {!!Form::open(['action'=>['SavedPostsController@store'], 'method'=>'POST', 'class'=>'pull-right', 'style'=>'float:right;'])!!}
                                 <input type = 'hidden' name = 'post_id' value = '{{$post->id}}'>
                                 <input type = 'hidden' name = 'post_title' value = '{{$post->title}}'>
-                                <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
+                                @if(!Auth::guest())
+                                    <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
+                                @else
+                                    <input type = 'hidden' name = 'user_id' value = '0'>
+                                @endif
                                 {{Form::submit('Save Post', ['class'=>'btn btn-secondary btn-sm'])}}
-                            {!!Form::close() !!}
-                    @endif
+                                {!!Form::close() !!}
+                         </h4>
+                        <h4> Trustworthiness score: {{$post->trustworthiness}}% </h4>
+                        <p> They identify {{$figure->first_name}} {{$figure->last_name}} as {{$post->political_position}} &nbsp; &nbsp;| &nbsp; &nbsp; Written on {{$post->created_at}}</p>
+                    </a>
                  </div>
                  @endforeach
                  {{$posts->links()}} <!-- this is to create the buttons for the paginated number buttons -->
