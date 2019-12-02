@@ -27,7 +27,7 @@
             @else
                 <h4>Currently not in an election campaign.</h4>
             @endif 
-            <p>{{$figure->bio}}</p>
+            <p>{!!$figure->bio!!}</p>
         </div>
     </div>
 
@@ -49,6 +49,7 @@
                     <a href="/posts/{{$post->id}}">
                         @if($post->cover_image != "noimage.jpg")
                             <img src="/storage/cover_images/{{$post->cover_image}}">
+                            <br><br>
                         @endif
                     </a> 
                     <h3><a href="/posts/{{$post->id}}" style="color:#424242;">{{$post->title}}</a>  <span style="font-size: 10px;"> Written by <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </span> </h3>

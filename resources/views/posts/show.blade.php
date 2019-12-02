@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="post">
     <a href="/posts" class="btn btn-default" >Go Back</a>
     <div class="container">
             <div class="row">
@@ -57,7 +58,7 @@
     <div class="shadow-sm p-4 mb-4 bg-light">
             <div class = "well well-sm">
                 <div class="row">
-                    <div class="col-md-8 col-sm-8">
+                    <div class="col-md-8 col-sm-8" style="color:black;">
                             {{$comment->body}}<br>
                             <small>Written on {{$comment->created_at}} 
                                 by <a href="/profile/username/{{$comment->username}}">{{$comment->username}}</a> </small>
@@ -117,5 +118,5 @@
         <br><br>
         You need to create an account to comment on reviews. Don't worry, it only takes a minute and you can log in with your Google or Facebook account!
     @endif
-    
+</div>    
 @endsection

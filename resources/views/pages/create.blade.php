@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="report">
     <h1>Add New Figure</h1>
     {!! Form::open(['action' => 'PagesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 
@@ -76,4 +77,5 @@
 
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+</div>
 @endsection

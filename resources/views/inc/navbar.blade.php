@@ -26,13 +26,13 @@
                             <a class="nav-link" style="color:white;" href="/">Figures</a>
                      </li>
                       <li class="nav-item">
-                          <a class="nav-link" style="color:white;" href="/posts">Reviews</a>
+                          <a class="nav-link" style="color:white;" href="/posts">Feed</a>
                       </li>
                </ul>
 
               <!-- Right Side Of Navbar -->
               <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Info <span class="caret"></span>
                             </a>
@@ -45,7 +45,10 @@
                                         {{ __('Political Definitions') }}
                                     </a>
                             </div>
-                        </li>
+                        </li> --}}
+                        <li class="nav-item">
+                                <a class="nav-link" style="color:white;" href="/us/contact">Contact Us</a>
+                            </li>
 
                        <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

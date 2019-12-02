@@ -35,7 +35,10 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(35);
-        return view('posts.index')->with('posts',$posts);
+        $electionFigures = Figure::where('isInElection', TRUE)
+                            ->orderBy('numOfReviews', 'desc')
+                            ->get();
+        return view('posts.index')->with('posts',$posts)->with('electionFigures',$electionFigures);
     }
 
 
@@ -97,7 +100,7 @@ class PostsController extends Controller
         if($request->input('trustworthiness'))
             $post->trustworthiness = $request->input('trustworthiness');
         else
-            $post->trustworthiness = 0;
+            $post->trustworthiness = 50;
 
         if($request->input('political_position'))
             $post->political_position = $request->input('political_position');
