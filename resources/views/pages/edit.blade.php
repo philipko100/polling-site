@@ -63,6 +63,12 @@
                 'placeholder'=>'e.g. For Canada: Canada or Ontario, etc. e.g. For U.S.: United States of America or Texas, etc.'])}}
              </div>
              <div class="form-group">
+                        {{Form::label('election_title', 'What is the office that this figure is running for?')}} <br>
+                        If the figure is not in election, leave this blank or put "N/A".
+                        {{Form::text('election_title', '', ['class'=>'form-control', 
+                        'placeholder'=>'e.g. President of the United States of America'])}}
+                </div>
+             <div class="form-group">
                 {{Form::label('political_party', 'Figure\'s Affiliated Political Party')}} <br>
                 If the figure is not officially affiliated with a political party, leave this blank or put "N/A".
                 {{Form::text('political_party', "$figure->political_party", ['class'=>'form-control', 

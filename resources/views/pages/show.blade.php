@@ -21,12 +21,13 @@
                 <h4> {{$figure->first_name}} {{$figure->last_name}} politically self identifies himself as a: {{$figure->self_position}} </h4>
             <hr style="background-color: #51B2C9;">
             @if($figure->isInElection)
-                <h4>Currently is in an election campaign.</h4>
-                <h4>Election Scope: {{$figure->election_scope}}</h4>
-                <h4>Election Region: {{$figure->election_region}}</h4>
+                <h4>{{$figure->last_name}} is running for {{$figure->election_title}}.</h4>
+                <p>Election Scope: {{$figure->election_scope}}</p>
+                <p>Election Region: {{$figure->election_region}}</p>
             @else
                 <h4>Currently not in an election campaign.</h4>
             @endif 
+            <hr style="background-color: #51B2C9;">
             <p>{!!$figure->bio!!}</p>
         </div>
     </div>
@@ -52,9 +53,11 @@
                             <br><br>
                         @endif
                     </a> 
-                    <h3><a href="/posts/{{$post->id}}" style="color:#424242;">{{$post->title}}</a>  <span style="font-size: 10px;"> Written by <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </span> </h3>
+                    <h3><a href="/posts/{{$post->id}}" style="color:#424242;">{{$post->title}}</a>  <br><span style="font-size: 10px;"> Written by <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </span> </h3>
                     <a href="/posts/{{$post->id}}" style="color:#424242;">
-                        <h4>Overall Score: {{$post->rating}}%
+                        <div class="FigureScore">
+                        <h4>Rating: {{$post->rating}}%
+                        </div>
                                 {!!Form::open(['action'=>['SavedPostsController@store'], 'method'=>'POST', 'class'=>'pull-right', 'style'=>'float:right;'])!!}
                                 <input type = 'hidden' name = 'post_id' value = '{{$post->id}}'>
                                 <input type = 'hidden' name = 'post_title' value = '{{$post->title}}'>
@@ -66,7 +69,9 @@
                                 {{Form::submit('Save Post', ['class'=>'btn btn-secondary btn-sm'])}}
                                 {!!Form::close() !!}
                          </h4>
-                        <h4> Trustworthiness score: {{$post->trustworthiness}}% </h4>
+                         <div class="TrustScore">
+                        <h4> Trustworthiness rating: {{$post->trustworthiness}}% </h4>
+                         </div>
                         <p> They identify {{$figure->first_name}} {{$figure->last_name}} as {{$post->political_position}} &nbsp; &nbsp;| &nbsp; &nbsp; Written on {{$post->created_at}}</p>
                     </a>
                  </div>
