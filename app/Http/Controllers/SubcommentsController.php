@@ -34,13 +34,18 @@ class SubcommentsController extends Controller
             ->orderBy('created_at','desc')
             ->get();
 
+        $electionFigures = Figure::where('isInElection', TRUE)
+            ->orderBy('numOfReviews', 'desc')
+            ->get();
+
 
         return view('subcomments.index')
         ->with('post', $post)
         ->with('figure', $figure)
         ->with('comments', $comments)
         ->with('subcomments', $subcomments)
-        ->with ('supercomment', $comment);
+        ->with ('supercomment', $comment)
+        ->with('electionFigures', $electionFigures);
     }
 
     /**
@@ -119,6 +124,10 @@ class SubcommentsController extends Controller
             ->orderBy('created_at','desc')
             ->get();
 
+        $electionFigures = Figure::where('isInElection', TRUE)
+            ->orderBy('numOfReviews', 'desc')
+            ->get();
+
         // Check for correct user
         if(auth()->user()->id == $user_subcomment->user_id){
             return view('subcomments.edit')
@@ -127,7 +136,8 @@ class SubcommentsController extends Controller
             ->with('comments', $comments)
             ->with('user_subcomment', $user_subcomment)
             ->with('subcomments', $subcomments)
-            ->with ('supercomment', $supercomment);
+            ->with ('supercomment', $supercomment)
+            ->with('electionFigures',$electionFigures);
         }
 
         if(auth()->user()->id !== $user_subcomment->user_id){

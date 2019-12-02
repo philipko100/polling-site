@@ -21,6 +21,10 @@ class SavedCommentsController extends Controller
      */
     public function store(Request $request)
     {
+        if(Auth::Guest()) {
+            return redirect('/login')->with('error', 'You need to log in to save something');
+        }
+        
         $this->validate($request, [
             'user_id' => 'required',
             'post_id' => 'required',
