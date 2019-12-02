@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class ="report">
     <h1>Edit Figure</h1>
     {!! Form::open(['action' => ['PagesController@update', $figure->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 
@@ -76,4 +77,5 @@
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+</div>
 @endsection

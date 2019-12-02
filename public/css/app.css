@@ -14,9 +14,37 @@ body {
   background-color: #13202C;
 }
 
+.post {
+  color: white;
+}
+
+
 .report {
   color: white;
 }
+
+
+.FigureScore {
+  border: 4px #ADEFD1FF solid;
+  display: inline-block;
+  width: 148px;
+  height: 55px;
+  padding: 10px;
+}
+
+.TrustScore {
+  display: inline-block;
+  margin-left: 10px;
+  border: 4px #ADEFD1FF solid;
+  width: 310px;
+  height: 55px;
+  padding: 10px;
+}
+
+.section-1 {
+  padding: 20px;
+}
+
 
 .search {
   position: relative;
@@ -160,6 +188,11 @@ ul {
   }
 
   .Profile-Container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ReviewsContainer {
     display: flex;
     flex-direction: column;
   }

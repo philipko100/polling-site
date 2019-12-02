@@ -18,7 +18,8 @@
                                         </div>
                                         {!! Form::close() !!}
                                         <li><a href="/posts">Feed</a></li>
-                                <li class="nav-item dropdown">
+                                        <li><a href="/us/contact">Contact Us</a></li>
+                                {{-- <li class="nav-item dropdown">
                                                 <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                     Info <span class="caret"></span>
                                                 </a>
@@ -31,7 +32,7 @@
                                                             {{ __('Political Definitions') }}
                                                         </a>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                 <li class="nav-item dropdown">
                                                         <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                             Report <span class="caret"></span>

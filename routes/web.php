@@ -119,6 +119,12 @@ Route::post('/complaints/store', 'ComplaintsController@store')->name('complaints
 
 Route::get('/complaints/index', 'ComplaintsController@index')->name('complaints.index');
 
+// Contact Us
+
+Route::get('/us/contact', function() {
+    return view('us.contactUs');
+});
+
 // Political Definition page
 
 Route::get('/politicaldefinitions', function() {
