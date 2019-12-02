@@ -34,12 +34,13 @@
                             @endif
                     </div> --}}
                     <div class="col-md-8 col-sm-8">
+                            <a href="/posts/{{$post->id}}">
                             @if($post->cover_image != "noimage.jpg")
                             <img style="width:50%; height:50%; max-width: 400px;
                             height: auto;" src="/storage/cover_images/{{$post->cover_image}}">
                             <br><br>
                             @endif
-                            <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3> <br>
+                            <h3>{{$post->title}}</h3></a> <br>
                             <h4>
                                 <div class="FigureScore">
                                     Rating: {{$post->rating}}%

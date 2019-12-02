@@ -193,11 +193,15 @@ class PostsController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(40);
 
+        $electionFigures = Figure::where('isInElection', TRUE)
+            ->orderBy('numOfReviews', 'desc')
+            ->get();
 
         return view('posts.show')
         ->with('post', $post)
         ->with('figure', $figure)
-        ->with('comments', $comments);
+        ->with('comments', $comments)
+        ->with('electionFigures', $electionFigures);
     }
 
 

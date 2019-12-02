@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<post-review>
     <h1>Edit Post</h1>
     <h3>You are rating <b>{{$figure->first_name}} {{$figure->last_name}}.</b></h3>
     <br>
@@ -78,4 +79,5 @@
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+</post-review>
 @endsection

@@ -97,13 +97,18 @@ class CommentsController extends Controller
             ->paginate(40);
 
 
+        $electionFigures = Figure::where('isInElection', TRUE)
+            ->orderBy('numOfReviews', 'desc')
+            ->get();
+
         // Check for correct user
         if(auth()->user()->id == $user_comment->user_id){
             return view('comments.edit')
             ->with('post', $post)
             ->with('figure', $figure)
             ->with('comments', $comments)
-            ->with('user_comment', $user_comment);
+            ->with('user_comment', $user_comment)
+            ->with('electionFigures', $electionFigures);
         }
 
         if(auth()->user()->id !== $user_comment->user_id){

@@ -1,32 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="/posts" class="btn btn-default" >Go Back</a>
+<div class="page-content">
+        <div class="ReviewsContainer" style="color:#00B4CC;">
+                <div class="section-1">
+                        <h1> Election Candidates </h1>
+                        <h2> Scores</h2>
+                        <ol>
+                            @foreach($electionFigures as $eFigure)
+                            <li> <a href="/figures/{{$eFigure->id}}" style="color:#00B4CC">{{$eFigure->first_name}} {{$eFigure->last_name}}: {{$eFigure->overall_rating}}% </a></li>
+                            @endforeach
+                        </ol>
+                    </div>
+        
+        </div>
+        <div class="post">
     <div class="container">
             <div class="row">
-                   <div class="col-md">
-    <h3><b>{{$figure->first_name}} {{$figure->last_name}}</b></h3>
+                   <div class="col-md-8 col-sm-8">
+                        <div class="text-center">
+                        <h3><grey>This is a rating of </grey><b>
+                            <a href="/figures/{{$figure->id}}" style="color:white;">{{$figure->first_name}} {{$figure->last_name}}</a></b></h3>
+                      
+                        <hr style="background-color: #51B2C9;">
     <h1>{{$post->title}}</h1>
+
+    <div class="FigureScore" style="margin-left: 10%">
+            <h4>Rating: {{$post->rating}}%</h4>
+            </div>
+            <div class="TrustScore">
+            <h4>Trustworthiness rating: {{$post->trustworthiness}}%</h4>
+            </div>
+            <br>
     
-    <h3><b>Rating of review: {{$post->rating}}</b></h3>
-    Overall Rating of {{$figure->first_name}} {{$figure->last_name}}: {{$figure->overall_rating}}
-    <h3><b>Trustworthiness rating: {{$post->trustworthiness}}</b></h3>
-    Public trust rating of {{$figure->first_name}} {{$figure->last_name}}: {{$figure->public_trust_rating}}
-    <img style="width:50%" src="/storage/cover_images/{{$post->cover_image}}">
+            Public Overall Rating of {{$figure->last_name}}: {{$figure->overall_rating}}% | 
+            Public Trust Rating of {{$figure->last_name}}: {{$figure->public_trust_rating}}%
+            @if($post->cover_image != "noimage.jpg")
+                <img style="max-width:450px;" src="/storage/cover_images/{{$post->cover_image}}">
+            @endif
+                                </div>
+                           </div>
     
-                   </div>
-    
-                   <div class="col-md">
+            <div class="col-md-4 col-sm-4">
     @if(!Auth::guest())
         @if(Auth::user()->id == $post->user_id)
-            <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit Rating</a>
+        <a href="/posts/{{$post->id}}/edit" class="btn btn-secondary btn-sm" style="float:right;">Edit Rating</a>
     
-            {!!Form::open(['action'=>['PostsController@destroy', $post->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
+            {!!Form::open(['action'=>['PostsController@destroy', $post->id], 'method'=>'POST', 
+            'class'=>'pull-right', 'style'=>'float:right;'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('Delete Rating', ['class'=>'btn btn-danger'])}}
             {!!Form::close() !!}
          @endif
     @endif
+    {!!Form::open(['action'=>['SavedPostsController@store'], 'method'=>'POST', 'class'=>'pull-right', 'style'=>'float:right;'])!!}
+                                <input type = 'hidden' name = 'post_id' value = '{{$post->id}}'>
+                                <input type = 'hidden' name = 'post_title' value = '{{$post->title}}'>
+                                @if(!Auth::guest())
+                                <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
+                                @endif
+                                {{Form::submit('Save Post', ['class'=>'btn btn-secondary btn-sm'])}}
+                            {!!Form::close() !!}
 
                    </div>
             </div>
@@ -37,21 +71,23 @@
     <div>
         {!!$post->body!!}
     </div>
-    <hr>
-    <small>Written on {{$post->created_at}} by {{$post->username}} </small>
-    <hr>
+    <small>Written on {{$post->created_at}} 
+            by <a href="/profile/username/{{$post->username}}">{{$post->username}}</a> </small> 
+        <hr style="background-color: #51B2C9;">
     Comments:
     @foreach($comments as $comment)
     <div class="shadow-sm p-4 mb-4 bg-light">
             <div class = "well well-sm">
                 <div class="row">
-                    <div class="col-md-8 col-sm-8">
+                    <div class="col-md-8 col-sm-8" style="color:black;">
                             {{$comment->body}}<br>
-                            <small>Written on {{$comment->created_at}} by {{$comment->username}} </small>
+                            <small>Written on {{$comment->created_at}} 
+                                    by <a href="/profile/username/{{$comment->username}}">{{$comment->username}}</a> </small>
                     </div>
+                    <div class="col-md-4 col-sm-4">
                     @if(!Auth::guest())
                         @if(Auth::user()->id == $comment->user_id)
-                    <div class="float-sm-right">
+                        <div class="float-sm-right">
                             <div class="row">
                                     {!!Form::open(['action'=>['CommentsController@edit', $comment->id], 'method'=>'GET', 'class'=>'pull-right'])!!}
                                         
@@ -63,9 +99,19 @@
                                 {{Form::hidden('_method', 'DELETE')}}
                                 {{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
                             {!!Form::close() !!}
-
-                            @endif
-                            @endif
+                            </div>
+                        </div>
+                         @endif
+                     @endif
+                    <br><br>
+                     {!!Form::open(['action'=>['SavedCommentsController@store'], 'method'=>'POST', 'class'=>'pull-right', 'style'=>'float:right;'])!!}
+                                <input type = 'hidden' name = 'post_id' value = '{{$comment->post_id}}'>
+                                <input type = 'hidden' name = 'comment_id' value = '{{$comment->id}}'>
+                                @if(!Auth::guest())
+                                <input type = 'hidden' name = 'user_id' value = '{{Auth::user()->id}}'>
+                                @endif
+                                {{Form::submit('Save Comment', ['class'=>'btn btn-secondary btn-sm'])}}
+                            {!!Form::close() !!}
                             </div>
                     </div>
                     @if($supercomment->id == $comment->id)
@@ -75,10 +121,11 @@
                         @else
                             @foreach($subcomments as $subcomment)
                                     @if($subcomment->id != $user_subcomment->id)
-                                    <div class="col-md-8 col-sm-8">
+                                        <div class="col-md-8 col-sm-8" style="color:black;">
                                         --> {{$subcomment->body}}<br>
-                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<small>Written on {{$subcomment->created_at}} by {{$subcomment->username}} </small>
-                                    </div>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<small>Written on {{$subcomment->created_at}} 
+                                                by <a href="/profile/username/{{$subcomment->username}}">{{$subcomment->username}}</a> </small>
+                                        </div>
                                     
                                         @if(!Auth::guest())
                                             @if(Auth::user()->id == $subcomment->user_id)
@@ -95,15 +142,20 @@
                                                 </div>
                                             </div>
                                             @endif
+                                            <br>
                                         @endif
-                                    @else
+                                     @else
                                      <!--- only users are allowed to comment -->
                                         @if(!Auth::guest())
                                             <div class="container">
-                                                <div class="row">
-                                                    {!!Form::open(['action'=>['SubcommentsController@update', $user_subcomment->id], 'method'=>'PUT', 'class'=>'pull-right'])!!}
-                                                    <div class="col"> --> {{Form::text('body', $user_subcomment->body, ['class'=>'form-control', 'placeholder'=>"Enter new subcomment", 'autofocus'])}}</div>
-                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{Form::submit('Edited Subcomment', ['class'=>'btn btn-secondary btn-sm'])}}
+                                                <div class="row" style="color:black;">
+                                                    {!!Form::open(['action'=>['SubcommentsController@update', $user_subcomment->id], 'method'=>'PUT', 'class'=>'pull-right', 'style'=>'height:120px'])!!}
+                                                    <div class="col"> --> 
+                                                        {{Form::textarea('body', $user_subcomment->body, ['class'=>'form-control', 'placeholder'=>"Enter new subcomment",
+                                                        'style'=>'width:100%; height:60px;','autofocus'])}}
+                                                    
+                                                        {{Form::submit('Edit Subcomment', ['class'=>'btn btn-secondary btn-sm'])}}
+                                                    </div>
                                                     {!!Form::close() !!}
                                                 </div>
                                             </div>
@@ -120,7 +172,6 @@
                     @endif
                 </div>
             </div>
-    </div>
     @endforeach
      {{$comments->links()}} <!-- this is to create the buttons for the paginated number buttons -->
     
@@ -147,5 +198,6 @@
         <br><br>
         You need to create an account to comment on reviews. Don't worry, it only takes a minute and you can log in with your Google or Facebook account!
     @endif
-    
+        </div>
+</div>
 @endsection
