@@ -93,9 +93,11 @@ class PagesController extends Controller
         if($request->input('isInElection')) {
             $figure->election_scope = $request->input('election_scope');
             $figure->election_region = $request->input('election_region');
+            $figure->election_title = $request->input('election_title');
         } else {
             $figure->election_scope = "N/A";
             $figure->election_region = "N/A";
+            $figure->election_title = "N/A";
         }
         if($request->input('political_party'))
             $figure->political_party = $request->input('political_party');
@@ -176,9 +178,11 @@ class PagesController extends Controller
         if($request->input('isInElection')) {
             $figure->election_scope = $request->input('election_scope');
             $figure->election_region = $request->input('election_region');
+            $figure->election_title = $request->input('election_title');
         } else {
             $figure->election_scope = "N/A";
             $figure->election_region = "N/A";
+            $figure->election_title = "N/A";
         }
 
         $figure->political_party = $request->input('political_party');

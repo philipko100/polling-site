@@ -13,8 +13,8 @@ class AddElectionPositionToFigures extends Migration
      */
     public function up()
     {
-        Schema::table('figures', function (Blueprint $table) {
-            //
+        Schema::table('figures', function ( $table) {
+            $table->String('election_title');
         });
     }
 
@@ -25,8 +25,8 @@ class AddElectionPositionToFigures extends Migration
      */
     public function down()
     {
-        Schema::table('figures', function (Blueprint $table) {
-            //
+        Schema::table('figures', function ( $table) {
+            $table->dropColumn('election_title');
         });
     }
 }
