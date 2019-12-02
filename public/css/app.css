@@ -18,9 +18,11 @@ body {
   color: white;
 }
 
+
 .report {
   color: white;
 }
+
 
 .FigureScore {
   border: 4px #ADEFD1FF solid;
@@ -42,6 +44,7 @@ body {
 .section-1 {
   padding: 20px;
 }
+
 
 .search {
   position: relative;
